@@ -1,671 +1,620 @@
-Ecco il nuovo `index.html` completo. Prima di incollarlo, **carica le immagini su GitHub** nella cartella `images/` con questi nomi esatti:
-- `images/logo-white.png` → il logo biidova senza sfondo
-- `images/hero-hyrox.jpg` → foto della donna HYROX
-- `images/hero-triathlon.jpg` → foto triatleta che esce dall'acqua
-- `images/hero-trail.jpg` → foto trail runner in montagna
-- `images/hero-marathon.jpg` → foto maratoneta in città
+<html lang="it"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biidova — Trasferisci la tua iscrizione sportiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lime: #32CD32;
+      --lime-dark: #28A428;
+      --lime-light: #EDFAED;
+      --black: #2E2A24;
+      --white: #FFFFFF;
+      --beige: #EBD4AA;
+      --beige-dark: #D4C49A;
+      --grey: #F7F5F0;
+      --grey-text: #6B6560;
+      --border: #2E2A24;
+      --font: 'Inter', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-Poi incolla questo HTML:
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: var(--white); border-bottom: 2.5px solid var(--border); }
+    .logo { font-size: 21px; font-weight: 900; color: var(--black); text-decoration: none; letter-spacing: -0.04em; }
+    .logo span { color: var(--lime-dark); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 700; color: var(--grey-text); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--black); }
+    .nav-cta { background: var(--lime); color: var(--black); border: 2.5px solid var(--border); padding: 9px 20px; font-family: var(--font); font-weight: 800; font-size: 13px; cursor: pointer; text-decoration: none; box-shadow: 3px 3px 0 var(--border); transition: all 0.15s; }
+    .nav-cta:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--border); }
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biidova — Buy & Sell Entries for Sold-Out Events</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --lime: #C8FF00;
-  --lime-hover: #b5e800;
-  --black: #0a0a0a;
-  --dark: #111111;
-  --dark2: #1a1a1a;
-  --white: #ffffff;
-  --grey: #888888;
-  --grey2: #444444;
-  --border: rgba(255,255,255,0.08);
-  --font: 'Inter', sans-serif;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--black); color: var(--white); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    /* HERO */
+    .hero { padding: 100px 48px 72px; border-bottom: 2.5px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1300px; margin: 0 auto; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--border); background: var(--beige); padding: 6px 14px; font-size: 11px; font-weight: 800; color: var(--black); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px; box-shadow: 3px 3px 0 var(--border); }
+    .hero-tag::before { content: ''; width: 8px; height: 8px; background: var(--lime); border: 1.5px solid var(--border); border-radius: 50%; }
+    .hero h1 { font-size: clamp(44px, 5.5vw, 80px); font-weight: 900; line-height: 0.96; letter-spacing: -0.04em; margin-bottom: 24px; }
+    .hero h1 .lime { color: var(--lime-dark); }
+    .hero-sub { font-size: 17px; color: var(--grey-text); max-width: 440px; margin-bottom: 36px; line-height: 1.7; }
+    .hero-sub strong { color: var(--black); font-weight: 700; }
+    .hero-actions { display: flex; gap: 12px; margin-bottom: 48px; flex-wrap: wrap; }
+    .btn-primary { background: var(--lime); color: var(--black); border: 2.5px solid var(--border); padding: 14px 28px; font-family: var(--font); font-weight: 800; font-size: 14px; cursor: pointer; text-decoration: none; box-shadow: 4px 4px 0 var(--border); transition: all 0.15s; display: inline-block; }
+    .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--border); }
+    .btn-secondary { background: var(--white); color: var(--black); border: 2.5px solid var(--border); padding: 14px 28px; font-family: var(--font); font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; box-shadow: 4px 4px 0 var(--border); transition: all 0.15s; display: inline-block; }
+    .btn-secondary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--border); }
+    .hero-stats { display: flex; gap: 40px; padding-top: 36px; border-top: 2px solid var(--border); flex-wrap: wrap; }
+    .stat-val { font-size: 28px; font-weight: 900; color: var(--black); letter-spacing: -0.03em; line-height: 1; }
+    .stat-val em { color: var(--lime-dark); font-style: normal; }
+    .stat-label { font-size: 11px; color: var(--grey-text); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--grey2); border-radius: 2px; }
+    /* SEARCH */
+    .search-bar { background: var(--black); padding: 18px 48px; position: sticky; top: 64px; z-index: 90; border-bottom: 2.5px solid var(--border); }
+    .search-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 8px; }
+    .s-input { flex: 1; background: var(--white); border: 2px solid var(--white); padding: 11px 16px; color: var(--black); font-family: var(--font); font-size: 14px; outline: none; transition: border-color 0.2s; }
+    .s-input:focus { border-color: var(--lime); }
+    .s-input::placeholder { color: #aaa; }
+    .s-select { background: var(--white); border: 2px solid var(--white); padding: 11px 16px; color: var(--black); font-family: var(--font); font-size: 14px; outline: none; min-width: 160px; }
+    .s-btn { background: var(--lime); color: var(--black); border: 2px solid var(--lime); padding: 11px 28px; font-family: var(--font); font-weight: 800; font-size: 13px; cursor: pointer; transition: background 0.2s; }
+    .s-btn:hover { background: var(--lime-dark); border-color: var(--lime-dark); color: var(--white); }
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 68px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 40px;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s;
-}
-.nav-logo img { height: 28px; display: block; }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a {
-  font-size: 13px; font-weight: 500; color: var(--grey);
-  text-decoration: none; letter-spacing: 0.01em;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--white); }
-.nav-right { display: flex; align-items: center; gap: 8px; }
-.nav-lang { font-size: 12px; color: var(--grey); padding: 0 12px; border-right: 1px solid var(--border); margin-right: 4px; display: flex; gap: 8px; }
-.nav-lang a { color: var(--grey); text-decoration: none; font-weight: 500; }
-.nav-lang a:hover { color: var(--white); }
-.nav-lang a.active { color: var(--white); font-weight: 700; }
-.btn-nav-login {
-  background: transparent; color: var(--white);
-  border: 1px solid var(--grey2);
-  padding: 8px 20px; font-family: var(--font); font-weight: 600; font-size: 13px;
-  cursor: pointer; text-decoration: none; border-radius: 6px;
-  transition: all 0.2s;
-}
-.btn-nav-login:hover { border-color: var(--white); }
-.btn-nav-signup {
-  background: var(--lime); color: var(--black);
-  border: none; padding: 8px 20px;
-  font-family: var(--font); font-weight: 800; font-size: 13px;
-  cursor: pointer; text-decoration: none; border-radius: 6px;
-  transition: all 0.2s;
-}
-.btn-nav-signup:hover { background: var(--lime-hover); }
+    /* SECTIONS */
+    .section { padding: 72px 48px; max-width: 1200px; margin: 0 auto; }
+    .section-divider { border: none; border-top: 2px solid var(--border); margin: 0; }
+    .eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-text); margin-bottom: 10px; }
+    .section-title { font-size: clamp(28px, 3.5vw, 48px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; }
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 2px solid var(--border); }
+    .view-all { font-size: 13px; font-weight: 800; color: var(--black); text-decoration: none; border-bottom: 3px solid var(--lime); padding-bottom: 2px; }
 
-/* ── HERO ── */
-.hero {
-  position: relative; height: 100vh; min-height: 680px;
-  display: flex; align-items: flex-end;
-  overflow: hidden;
-}
-.hero-slider {
-  position: absolute; inset: 0; z-index: 0;
-}
-.hero-slide {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center top;
-  opacity: 0; transition: opacity 1.2s ease;
-}
-.hero-slide.active { opacity: 1; }
-.hero-slide::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(10,10,10,0.92) 0%,
-    rgba(10,10,10,0.6) 50%,
-    rgba(10,10,10,0.1) 100%
-  );
-}
-.hero-slide-1 { background-image: url('images/hero-hyrox.jpg'); }
-.hero-slide-2 { background-image: url('images/hero-triathlon.jpg'); }
-.hero-slide-3 { background-image: url('images/hero-trail.jpg'); }
-.hero-slide-4 { background-image: url('images/hero-marathon.jpg'); }
+    /* TAGS */
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .tag { background: var(--white); border: 2px solid var(--border); padding: 7px 16px; font-size: 12px; font-weight: 700; color: var(--black); cursor: pointer; font-family: var(--font); text-transform: uppercase; letter-spacing: 0.06em; transition: all 0.15s; box-shadow: 2px 2px 0 var(--border); }
+    .tag:hover { background: var(--beige); }
+    .tag.active { background: var(--black); color: var(--white); box-shadow: none; }
 
-.hero-content {
-  position: relative; z-index: 10;
-  padding: 0 80px 100px;
-  max-width: 760px;
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--lime);
-  margin-bottom: 24px;
-}
-.hero-eyebrow::before {
-  content: ''; width: 6px; height: 6px;
-  background: var(--lime); border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.4); }
-}
-.hero h1 {
-  font-size: clamp(52px, 6.5vw, 96px);
-  font-weight: 900; line-height: 0.93;
-  letter-spacing: -0.04em;
-  margin-bottom: 24px;
-  color: var(--white);
-}
-.hero h1 .lime { color: var(--lime); }
-.hero-sub {
-  font-size: 17px; color: rgba(255,255,255,0.6);
-  max-width: 480px; margin-bottom: 40px; line-height: 1.7;
-}
-.hero-sub strong { color: var(--white); font-weight: 600; }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 60px; }
-.btn-primary {
-  background: var(--lime); color: var(--black);
-  border: none; padding: 16px 32px;
-  font-family: var(--font); font-weight: 800; font-size: 15px;
-  cursor: pointer; text-decoration: none; border-radius: 8px;
-  transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
-}
-.btn-primary:hover { background: var(--lime-hover); transform: translateY(-1px); }
-.btn-secondary {
-  background: rgba(255,255,255,0.08); color: var(--white);
-  border: 1px solid rgba(255,255,255,0.15); padding: 16px 32px;
-  font-family: var(--font); font-weight: 600; font-size: 15px;
-  cursor: pointer; text-decoration: none; border-radius: 8px;
-  transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
-  backdrop-filter: blur(10px);
-}
-.btn-secondary:hover { background: rgba(255,255,255,0.14); transform: translateY(-1px); }
-.hero-trust {
-  display: flex; gap: 32px; flex-wrap: wrap;
-}
-.trust-item {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500;
-}
-.trust-item svg { flex-shrink: 0; }
-.trust-item strong { color: var(--white); font-weight: 600; }
+    /* CARDS */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card { background: var(--white); border: 2.5px solid var(--border); overflow: hidden; text-decoration: none; display: block; transition: all 0.15s; box-shadow: 4px 4px 0 var(--border); }
+    .card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--border); }
+    .card-thumb { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: #EBD4AA; border-bottom: 2.5px solid var(--border); position: relative; overflow: hidden; }
+    .sport-badge { position: absolute; top: 10px; left: 10px; background: var(--black); color: var(--white); padding: 4px 10px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; border: 1.5px solid var(--border); }
+    .spots-badge { position: absolute; top: 10px; right: 10px; background: var(--lime); color: var(--black); padding: 4px 10px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; border: 1.5px solid var(--border); }
+    .card-body { padding: 18px; }
+    .card-seller { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--grey-text); margin-bottom: 10px; font-weight: 500; }
+    .avatar { width: 22px; height: 22px; background: var(--beige); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; color: var(--black); }
+    .card-meta { display: flex; gap: 10px; margin-bottom: 6px; }
+    .card-date { font-size: 11px; color: var(--lime-dark); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .card-city { font-size: 11px; color: var(--grey-text); font-weight: 500; }
+    .card-title { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--black); margin-bottom: 5px; line-height: 1.25; }
+    .card-desc { font-size: 12px; color: var(--grey-text); line-height: 1.6; margin-bottom: 16px; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 2px solid var(--border); }
+    .price-label { font-size: 10px; color: var(--grey-text); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+    .price-val { font-size: 20px; font-weight: 900; color: var(--black); letter-spacing: -0.02em; }
+    .price-val small { color: var(--grey-text); font-size: 11px; font-weight: 400; }
+    .card-btn { background: var(--black); color: var(--white); border: 2px solid var(--border); padding: 8px 16px; font-family: var(--font); font-weight: 800; font-size: 12px; cursor: pointer; transition: all 0.15s; box-shadow: 2px 2px 0 var(--border); }
+    .card:hover .card-btn { background: var(--lime); color: var(--black); }
 
-/* Slider dots */
-.hero-dots {
-  position: absolute; bottom: 40px; right: 60px; z-index: 10;
-  display: flex; gap: 8px; align-items: center;
-}
-.hero-dot {
-  width: 6px; height: 6px; border-radius: 3px;
-  background: rgba(255,255,255,0.3);
-  border: none; cursor: pointer; padding: 0;
-  transition: all 0.3s;
-}
-.hero-dot.active {
-  width: 24px; background: var(--lime);
-}
+    /* HOW IT WORKS */
+    .how-wrap { background: var(--beige); border-top: 2.5px solid var(--border); border-bottom: 2.5px solid var(--border); padding: 72px 48px; }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+    .tabs { display: flex; gap: 0; border: 2.5px solid var(--border); width: fit-content; margin-bottom: 48px; box-shadow: 4px 4px 0 var(--border); }
+    .tab { padding: 11px 28px; font-family: var(--font); font-weight: 700; font-size: 13px; cursor: pointer; color: var(--grey-text); background: transparent; border: none; border-right: 2px solid var(--border); transition: all 0.15s; text-transform: uppercase; letter-spacing: 0.06em; }
+    .tab:last-child { border-right: none; }
+    .tab.active { background: var(--black); color: var(--white); font-weight: 800; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step { background: var(--white); border: 2.5px solid var(--border); padding: 32px; box-shadow: 4px 4px 0 var(--border); }
+    .step-num { font-size: 60px; font-weight: 900; letter-spacing: -0.04em; color: var(--beige-dark); line-height: 1; margin-bottom: 12px; }
+    .step-line { width: 36px; height: 4px; background: var(--lime); margin-bottom: 18px; border: 1px solid var(--lime-dark); }
+    .step h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .step p { font-size: 14px; color: var(--grey-text); line-height: 1.7; }
 
-/* ── SEARCH BAR ── */
-.search-section {
-  background: var(--dark);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 20px 80px;
-  position: sticky; top: 68px; z-index: 100;
-}
-.search-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: flex; gap: 10px; align-items: center;
-}
-.search-wrap {
-  flex: 1; display: flex; align-items: center;
-  background: var(--dark2); border: 1px solid var(--grey2);
-  border-radius: 8px; padding: 0 16px; gap: 10px;
-  transition: border-color 0.2s;
-}
-.search-wrap:focus-within { border-color: var(--lime); }
-.search-wrap svg { flex-shrink: 0; color: var(--grey); }
-.search-wrap input {
-  flex: 1; background: none; border: none; outline: none;
-  color: var(--white); font-family: var(--font); font-size: 14px;
-  padding: 12px 0;
-}
-.search-wrap input::placeholder { color: var(--grey); }
-.s-select {
-  background: var(--dark2); border: 1px solid var(--grey2);
-  color: var(--white); font-family: var(--font); font-size: 14px;
-  padding: 12px 16px; border-radius: 8px; outline: none;
-  min-width: 150px; cursor: pointer;
-}
-.s-select option { background: var(--dark2); }
-.s-btn {
-  background: var(--lime); color: var(--black);
-  border: none; padding: 12px 28px;
-  font-family: var(--font); font-weight: 800; font-size: 14px;
-  cursor: pointer; border-radius: 8px; transition: all 0.2s;
-  white-space: nowrap;
-}
-.s-btn:hover { background: var(--lime-hover); }
+    /* ILLUSTRATION CARDS */
+    .illo-section { padding: 72px 48px; background: var(--grey); border-bottom: 2.5px solid var(--border); }
+    .illo-inner { max-width: 1100px; margin: 0 auto; }
+    .illo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .illo-card { background: var(--white); border: 2.5px solid var(--border); padding: 32px 24px; text-align: center; box-shadow: 4px 4px 0 var(--border); transition: all 0.15s; }
+    .illo-card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--border); }
+    .illo-card svg { margin-bottom: 20px; }
+    .illo-card h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .illo-card p { font-size: 14px; color: var(--grey-text); line-height: 1.6; }
 
-/* ── SECTIONS ── */
-.section { padding: 80px 80px; max-width: 1280px; margin: 0 auto; }
-.eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--lime); margin-bottom: 12px;
-}
-.section-title {
-  font-size: clamp(32px, 3.5vw, 52px);
-  font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;
-  color: var(--white);
-}
-.section-header {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 32px;
-}
-.view-all {
-  font-size: 14px; font-weight: 700; color: var(--lime);
-  text-decoration: none; display: flex; align-items: center; gap: 4px;
-  transition: gap 0.2s;
-}
-.view-all:hover { gap: 8px; }
+    /* WHY */
+    .why-wrap { padding: 72px 48px; border-bottom: 2.5px solid var(--border); }
+    .why-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .why-left h2 { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+    .why-left h2 .lime { color: var(--lime-dark); }
+    .why-left p { font-size: 15px; color: var(--grey-text); line-height: 1.8; margin-bottom: 28px; }
+    .features { border: 2.5px solid var(--border); box-shadow: 4px 4px 0 var(--border); }
+    .feature { display: flex; gap: 14px; align-items: flex-start; padding: 20px; border-bottom: 2px solid var(--border); transition: background 0.15s; }
+    .feature:last-child { border-bottom: none; }
+    .feature:hover { background: var(--beige); }
+    .feature-check { width: 24px; height: 24px; background: var(--lime); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; color: var(--black); flex-shrink: 0; margin-top: 1px; box-shadow: 2px 2px 0 var(--border); }
+    .feature-text h4 { font-size: 14px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 3px; }
+    .feature-text p { font-size: 13px; color: var(--grey-text); line-height: 1.6; }
 
-/* ── TAGS ── */
-.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-.tag {
-  background: transparent; border: 1px solid var(--grey2);
-  color: var(--grey); padding: 7px 18px;
-  font-size: 12px; font-weight: 600; font-family: var(--font);
-  border-radius: 100px; cursor: pointer;
-  transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.06em;
-}
-.tag:hover { border-color: var(--white); color: var(--white); }
-.tag.active { background: var(--lime); border-color: var(--lime); color: var(--black); font-weight: 800; }
+    /* ORG */
+    .org-wrap { padding: 72px 48px; border-bottom: 2.5px solid var(--border); background: var(--grey); }
+    .org-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .org-left h2 { font-size: clamp(26px, 3.5vw, 44px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px; }
+    .org-left p { font-size: 15px; color: var(--grey-text); line-height: 1.8; margin-bottom: 24px; }
+    .org-list { border: 2.5px solid var(--border); margin-bottom: 28px; box-shadow: 4px 4px 0 var(--border); background: var(--white); }
+    .org-item { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 2px solid var(--border); font-size: 14px; font-weight: 600; color: var(--black); }
+    .org-item:last-child { border-bottom: none; }
+    .org-item::before { content: '✓'; width: 22px; height: 22px; background: var(--lime); border: 2px solid var(--border); color: var(--black); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; flex-shrink: 0; }
+    .org-form { border: 2.5px solid var(--border); padding: 36px; background: var(--white); box-shadow: 4px 4px 0 var(--border); }
+    .org-form h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; }
+    .form-group { margin-bottom: 14px; }
+    .form-label { display: block; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-text); margin-bottom: 7px; }
+    .form-input { width: 100%; background: var(--white); border: 2px solid var(--border); padding: 11px 14px; color: var(--black); font-family: var(--font); font-size: 14px; outline: none; transition: border-color 0.2s; }
+    .form-input:focus { border-color: var(--lime-dark); }
+    .form-input::placeholder { color: #bbb; }
+    .form-submit { width: 100%; background: var(--lime); color: var(--black); border: 2.5px solid var(--border); padding: 13px; font-family: var(--font); font-weight: 900; font-size: 14px; cursor: pointer; margin-top: 8px; box-shadow: 3px 3px 0 var(--border); transition: all 0.15s; }
+    .form-submit:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--border); }
 
-/* ── EVENT CARDS ── */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
-.card {
-  background: var(--dark2); border: 1px solid var(--border);
-  border-radius: 12px; overflow: hidden;
-  text-decoration: none; display: block;
-  transition: all 0.2s; cursor: pointer;
-}
-.card:hover { border-color: rgba(200,255,0,0.3); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-.card-thumb {
-  width: 100%; height: 200px;
-  background: var(--dark); position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-}
-.card-thumb-bg {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
-  transition: transform 0.4s ease;
-}
-.card:hover .card-thumb-bg { transform: scale(1.05); }
-.card-thumb::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 60%);
-}
-.sport-badge {
-  position: absolute; top: 12px; left: 12px; z-index: 1;
-  background: rgba(10,10,10,0.7); color: var(--white);
-  backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1);
-  padding: 4px 10px; font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px;
-}
-.spots-badge {
-  position: absolute; top: 12px; right: 12px; z-index: 1;
-  background: var(--lime); color: var(--black);
-  padding: 4px 10px; font-size: 10px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.06em; border-radius: 4px;
-}
-.card-body { padding: 20px; }
-.card-meta { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; }
-.card-date { font-size: 11px; color: var(--lime); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
-.card-dot { width: 3px; height: 3px; background: var(--grey2); border-radius: 50%; }
-.card-city { font-size: 11px; color: var(--grey); font-weight: 500; }
-.card-title { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
-.card-desc { font-size: 13px; color: var(--grey); line-height: 1.6; margin-bottom: 18px; }
-.card-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-top: 16px; border-top: 1px solid var(--border);
-}
-.price-block {}
-.price-label { font-size: 10px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
-.price-val { font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: -0.02em; }
-.price-val small { color: var(--grey); font-size: 11px; font-weight: 400; }
-.card-btn {
-  background: var(--lime); color: var(--black);
-  border: none; padding: 10px 20px;
-  font-family: var(--font); font-weight: 800; font-size: 12px;
-  cursor: pointer; border-radius: 6px; transition: all 0.2s;
-}
-.card-btn:hover { background: var(--lime-hover); }
+    /* SELL CTA */
+    .sell-wrap { padding: 100px 48px; text-align: center; background: var(--beige); border-bottom: 2.5px solid var(--border); }
+    .sell-inner { max-width: 640px; margin: 0 auto; }
+    .sell-inner h2 { font-size: clamp(36px, 5vw, 72px); font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; margin-bottom: 20px; }
+    .sell-inner h2 .lime { color: var(--lime-dark); }
+    .sell-inner p { font-size: 16px; color: var(--grey-text); line-height: 1.7; margin-bottom: 36px; }
 
-/* ── DIVIDER ── */
-.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    /* FOOTER */
+    footer { padding: 60px 48px 36px; border-top: 2.5px solid var(--border); background: var(--white); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 2px solid var(--border); }
+    .footer-logo { font-size: 22px; font-weight: 900; letter-spacing: -0.03em; color: var(--black); }
+    .footer-logo span { color: var(--lime-dark); }
+    .footer-tagline { font-size: 13px; color: var(--grey-text); margin-top: 8px; max-width: 220px; line-height: 1.6; }
+    .footer-links { display: flex; gap: 64px; }
+    .footer-col h4 { font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 14px; color: var(--grey-text); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-weight: 500; }
+    .footer-col a:hover { color: var(--black); }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 13px; color: var(--grey-text); }
 
-/* ── HOW IT WORKS ── */
-.how-section { background: var(--dark); padding: 100px 80px; }
-.how-inner { max-width: 1100px; margin: 0 auto; }
-.how-tabs {
-  display: flex; gap: 4px;
-  background: var(--dark2); border-radius: 10px; padding: 4px;
-  width: fit-content; margin-bottom: 56px;
-}
-.how-tab {
-  padding: 10px 28px; font-family: var(--font); font-weight: 600; font-size: 14px;
-  cursor: pointer; color: var(--grey); background: transparent;
-  border: none; border-radius: 7px; transition: all 0.2s;
-}
-.how-tab.active { background: var(--white); color: var(--black); font-weight: 800; }
-.how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.how-step {
-  background: var(--dark2); border: 1px solid var(--border);
-  border-radius: 12px; padding: 36px 28px;
-  transition: border-color 0.2s;
-}
-.how-step:hover { border-color: rgba(200,255,0,0.2); }
-.step-num {
-  font-size: 13px; font-weight: 800; color: var(--lime);
-  letter-spacing: 0.1em; margin-bottom: 20px;
-}
-.step-icon {
-  width: 48px; height: 48px; background: rgba(200,255,0,0.1);
-  border-radius: 12px; display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
-}
-.how-step h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--white); }
-.how-step p { font-size: 14px; color: var(--grey); line-height: 1.7; }
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(46,42,36,0.5); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--white); border: 2.5px solid var(--border); padding: 36px; max-width: 420px; width: 100%; position: relative; box-shadow: 8px 8px 0 var(--border); }
+    .modal-close { position: absolute; top: 14px; right: 14px; background: var(--grey); border: 2px solid var(--border); color: var(--black); width: 30px; height: 30px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-weight: 800; }
+    .modal-close:hover { background: var(--black); color: var(--white); }
+    .modal h3 { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .modal-info { background: var(--beige); border: 2px solid var(--border); padding: 14px; margin-bottom: 18px; }
+    .modal-info strong { display: block; font-size: 15px; font-weight: 800; margin-bottom: 3px; }
+    .modal-info span { font-size: 12px; color: var(--grey-text); }
+    .modal-price { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); margin-bottom: 18px; }
+    .modal-price-label { font-size: 12px; color: var(--grey-text); font-weight: 500; }
+    .modal-price-val { font-size: 28px; font-weight: 900; color: var(--black); letter-spacing: -0.03em; }
+    .modal-note { font-size: 12px; color: var(--grey-text); text-align: center; margin-top: 12px; line-height: 1.6; }
+    .success-state { text-align: center; padding: 16px 0; }
+    .success-icon { font-size: 48px; margin-bottom: 12px; }
+    .success-state h3 { color: var(--lime-dark); margin-bottom: 6px; }
+    .success-state p { color: var(--grey-text); font-size: 14px; }
 
-/* ── TRUST STRIP ── */
-.trust-strip {
-  background: var(--dark2);
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  padding: 28px 80px;
-}
-.trust-strip-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: flex; gap: 48px; align-items: center; justify-content: center;
-  flex-wrap: wrap;
-}
-.trust-strip-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; font-weight: 600; color: var(--white);
-}
-.trust-strip-item svg { color: var(--lime); flex-shrink: 0; }
-.trust-strip-item span { color: var(--grey); font-weight: 400; font-size: 13px; }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; }
 
-/* ── SELL CTA ── */
-.sell-section {
-  padding: 120px 80px;
-  text-align: center;
-  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,255,0,0.08) 0%, transparent 70%), var(--black);
-}
-.sell-inner { max-width: 680px; margin: 0 auto; }
-.sell-inner h2 {
-  font-size: clamp(40px, 5.5vw, 80px);
-  font-weight: 900; letter-spacing: -0.04em; line-height: 0.93;
-  margin-bottom: 20px; color: var(--white);
-}
-.sell-inner h2 .lime { color: var(--lime); }
-.sell-inner p {
-  font-size: 17px; color: var(--grey);
-  line-height: 1.7; margin-bottom: 40px;
-}
-.sell-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 90px 20px 60px; gap: 40px; }
+      .search-bar { padding: 14px 20px; }
+      .search-inner { flex-wrap: wrap; }
+      .s-select { min-width: 100%; }
+      .section { padding: 48px 20px; }
+      .grid { grid-template-columns: 1fr; }
+      .how-wrap { padding: 48px 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .illo-section { padding: 48px 20px; }
+      .illo-grid { grid-template-columns: 1fr; }
+      .why-wrap { padding: 48px 20px; }
+      .why-inner { grid-template-columns: 1fr; gap: 40px; }
+      .org-wrap { padding: 48px 20px; }
+      .org-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sell-wrap { padding: 60px 20px; }
+      footer { padding: 48px 20px 28px; }
+      .footer-top { flex-direction: column; gap: 28px; }
+      .footer-links { flex-wrap: wrap; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 6px; }
+    }
+  
+    /* MOBILE OPTIMIZED */
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; height: 56px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 8px 14px; font-size: 12px; }
+      .logo { font-size: 18px; }
+      
+      /* Hero mobile */
+      section[style*="min-height"] {
+        min-height: auto !important;
+      }
+      section[style*="min-height"] > div[style*="position:relative"] {
+        padding: 80px 16px 40px !important;
+        max-width: 100% !important;
+      }
+      section[style*="min-height"] h1 {
+        font-size: clamp(36px, 10vw, 64px) !important;
+      }
+      section[style*="min-height"] > div[style*="position:absolute"] img {
+        object-position: right center !important;
+      }
+      
+      /* Search mobile */
+      .search-bar { padding: 12px 16px; top: 56px; }
+      .search-inner { flex-wrap: wrap; gap: 8px; }
+      .s-input { min-width: 100%; }
+      .s-select { min-width: calc(50% - 4px); font-size: 13px; }
+      .s-btn { width: 100%; }
+      
+      /* Section mobile */
+      .section { padding: 40px 16px; }
+      .section-title { font-size: 28px !important; }
+      .section-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+      
+      /* Grid mobile - 1 colonna */
+      .grid { grid-template-columns: 1fr !important; gap: 12px; background: var(--grey-200); }
+      
+      /* Card mobile */
+      .card-thumb { height: 180px !important; }
+      .card-thumb img { width: 80% !important; max-width: 150px !important; height: 150px !important; object-fit: contain !important; }
+      .card-title { font-size: 15px; }
+      
+      /* Tags mobile */
+      .tags { gap: 6px; }
+      .tag { padding: 6px 12px; font-size: 11px; }
+      
+      /* How it works mobile */
+      .how-wrap { padding: 40px 16px; }
+      .steps { grid-template-columns: 1fr !important; gap: 16px; }
+      .step { padding: 24px; }
+      .tabs { width: 100%; }
+      .tab { padding: 10px 16px; font-size: 12px; flex: 1; text-align: center; }
+      
+      /* Illo section mobile */
+      .illo-section { padding: 40px 16px; }
+      .illo-grid { grid-template-columns: 1fr !important; gap: 16px; }
+      .illo-card { padding: 24px 16px; }
+      
+      /* Why mobile */
+      .why-wrap { padding: 40px 16px; }
+      .why-inner { grid-template-columns: 1fr !important; gap: 32px; }
+      
+      /* Org mobile */
+      .org-wrap { padding: 40px 16px; }
+      .org-inner { grid-template-columns: 1fr !important; gap: 32px; }
+      .org-form { padding: 24px 16px; }
+      
+      /* Sell CTA mobile */
+      .sell-wrap { padding: 60px 16px; }
+      .sell-inner h2 { font-size: 36px !important; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; text-align: center; justify-content: center; }
+      
+      /* Footer mobile */
+      footer { padding: 40px 16px 24px; }
+      .footer-top { flex-direction: column; gap: 24px; }
+      .footer-links { flex-direction: column; gap: 24px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      
+      /* Stats mobile */
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .stat-val { font-size: 22px; }
+    }
+    
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+      .s-select { min-width: 100%; }
+      .hero-stats { gap: 16px; }
+      .stat-val { font-size: 20px; }
+    }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--dark); border-top: 1px solid var(--border);
-  padding: 72px 80px 40px;
-}
-.footer-inner { max-width: 1100px; margin: 0 auto; }
-.footer-top {
-  display: flex; justify-content: space-between; gap: 64px;
-  margin-bottom: 56px; padding-bottom: 56px;
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-}
-.footer-brand {}
-.footer-logo { height: 24px; display: block; margin-bottom: 14px; }
-.footer-tagline { font-size: 14px; color: var(--grey); line-height: 1.7; max-width: 220px; }
-.footer-links { display: flex; gap: 64px; flex-wrap: wrap; }
-.footer-col h4 {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--white); margin-bottom: 18px;
-}
-.footer-col a {
-  display: block; font-size: 14px; color: var(--grey);
-  text-decoration: none; margin-bottom: 12px;
-  transition: color 0.2s; font-weight: 400;
-}
-.footer-col a:hover { color: var(--white); }
-.footer-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 13px; color: var(--grey); flex-wrap: wrap; gap: 12px;
-}
-.footer-bottom a { color: var(--grey); text-decoration: none; }
-.footer-bottom a:hover { color: var(--white); }
-
-/* ── MODAL ── */
-.modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
-  z-index: 1000; display: none; align-items: center; justify-content: center;
-  padding: 20px; backdrop-filter: blur(8px);
-}
-.modal-overlay.open { display: flex; }
-.modal {
-  background: var(--dark); border: 1px solid var(--grey2);
-  border-radius: 16px; padding: 40px; max-width: 440px; width: 100%;
-  position: relative; box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-}
-.modal-close {
-  position: absolute; top: 16px; right: 16px;
-  background: var(--dark2); border: 1px solid var(--grey2);
-  color: var(--white); width: 32px; height: 32px; border-radius: 50%;
-  cursor: pointer; font-size: 16px; display: flex;
-  align-items: center; justify-content: center; transition: all 0.2s;
-}
-.modal-close:hover { background: var(--grey2); }
-.modal h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
-.modal .sub { font-size: 14px; color: var(--grey); margin-bottom: 28px; }
-.form-group { margin-bottom: 14px; }
-.form-label {
-  display: block; font-size: 11px; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--grey); margin-bottom: 8px;
-}
-.form-input {
-  width: 100%; background: var(--dark2); border: 1px solid var(--grey2);
-  border-radius: 8px; padding: 12px 16px; color: var(--white);
-  font-family: var(--font); font-size: 14px; outline: none;
-  transition: border-color 0.2s;
-}
-.form-input:focus { border-color: var(--lime); }
-.form-input::placeholder { color: var(--grey); }
-.form-submit {
-  width: 100%; background: var(--lime); color: var(--black);
-  border: none; border-radius: 8px; padding: 14px;
-  font-family: var(--font); font-weight: 900; font-size: 15px;
-  cursor: pointer; margin-top: 8px; transition: background 0.2s;
-}
-.form-submit:hover { background: var(--lime-hover); }
-
-/* ── MOBILE ── */
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .nav-lang { display: none; }
-  .hero-content { padding: 0 24px 80px; }
-  .search-section { padding: 16px 20px; }
-  .search-inner { flex-direction: column; }
-  .section { padding: 60px 24px; }
-  .how-section { padding: 60px 24px; }
-  .how-steps { grid-template-columns: 1fr; }
-  .trust-strip { padding: 24px 20px; }
-  .trust-strip-inner { gap: 24px; justify-content: flex-start; }
-  .sell-section { padding: 80px 24px; }
-  footer { padding: 56px 24px 32px; }
-  .footer-top { flex-direction: column; gap: 40px; }
-  .footer-links { gap: 32px; }
-}
-</style>
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="images/logo-white.png" alt="biidova">
-  </a>
+  <a href="#" class="logo">biid<span>ova</span></a>
   <ul class="nav-links">
-    <li><a href="#events">events</a></li>
-    <li><a href="#sell">sell</a></li>
-    <li><a href="#how">how it works</a></li>
-    <li><a href="#support">support</a></li>
-    <li><a href="#about">about</a></li>
+    <li><a href="#events">Esplora</a></li>
+    <li><a href="#come-funziona">Come funziona</a></li>
+    <li><a href="#organizzatori">Organizzatori</a></li>
   </ul>
-  <div class="nav-right">
-    <div class="nav-lang">
-      <a href="#" class="active">EN</a>
-      <a href="#">IT</a>
-    </div>
-    <a href="#" class="btn-nav-login" onclick="openModal('login');return false;">login</a>
-    <a href="#" class="btn-nav-signup" onclick="openModal('signup');return false;">sign up</a>
-  </div>
+  <a href="#vendi" class="nav-cta">Cedi iscrizione →</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-slider">
-    <div class="hero-slide hero-slide-1 active"></div>
-    <div class="hero-slide hero-slide-2"></div>
-    <div class="hero-slide hero-slide-3"></div>
-    <div class="hero-slide hero-slide-4"></div>
+<section style="position:relative; border-bottom: 2.5px solid var(--border); overflow:hidden; min-height: 580px; display:flex; align-items:center;">
+  <!-- Hero background image -->
+  <div style="position:absolute; inset:0; z-index:0;">
+    <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/athletes-hero.png" style="width:100%; height:100%; object-fit:cover; object-position:center;" alt="Athletes hero">
+    <!-- Overlay per leggibilità testo -->
+    <div style="position:absolute; inset:0; background: linear-gradient(to right, rgba(255,255,255,0.95) 45%, rgba(255,255,255,0.3) 100%);"></div>
   </div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">The marketplace for race entries</div>
-    <h1>sold-out events.<br><span class="lime">still within reach.</span></h1>
-    <p class="hero-sub">
-      <strong>Buy &amp; sell entries</strong> for HYROX, marathons, triathlons and more.
-      Safely, securely, worldwide.
+  <!-- Content -->
+  <div style="position:relative; z-index:1; padding: 80px 48px; max-width:640px;">
+    <div class="hero-tag">Marketplace ufficiale · Italia</div>
+    <h1 style="font-size: clamp(48px, 6vw, 88px); font-weight:900; line-height:0.95; letter-spacing:-0.04em; margin-bottom:24px;">
+      Non puoi<br>gareggiare?<br><span style="color:var(--lime-dark);">Qualcuno</span><br>può farlo.
+    </h1>
+    <p style="font-size:17px; color:var(--grey-text); max-width:440px; margin-bottom:36px; line-height:1.7;">
+      Il primo marketplace italiano per il <strong style="color:var(--black);">trasferimento ufficiale di iscrizioni sportive</strong>. Legale, sicuro, in pochi minuti.
     </p>
-    <div class="hero-actions">
-      <a href="#events" class="btn-primary">explore events →</a>
-      <a href="#sell" class="btn-secondary">sell your entry</a>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:48px;">
+      <a href="#events" class="btn-primary">Trova un posto →</a>
+      <a href="#vendi" class="btn-secondary">Vendi la tua iscrizione</a>
     </div>
-    <div class="hero-trust">
-      <div class="trust-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span><strong>100% secure</strong> — Payments protected</span>
-      </div>
-      <div class="trust-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        <span><strong>Official transfer</strong> — Always compliant</span>
-      </div>
-      <div class="trust-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <span><strong>5.0 / 5</strong> — 2,400+ athletes</span>
-      </div>
-      <div class="trust-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span><strong>Worldwide</strong> — 100+ countries</span>
-      </div>
+    <div class="hero-stats">
+      <div><div class="stat-val">8<em>K+</em></div><div class="stat-label">gare/anno</div></div>
+      <div><div class="stat-val">€<em>30–150</em></div><div class="stat-label">costo medio</div></div>
+      <div><div class="stat-val">0<em>%</em></div><div class="stat-label">commissione venditore</div></div>
     </div>
-  </div>
-  <div class="hero-dots">
-    <button class="hero-dot active" onclick="goToSlide(0)"></button>
-    <button class="hero-dot" onclick="goToSlide(1)"></button>
-    <button class="hero-dot" onclick="goToSlide(2)"></button>
-    <button class="hero-dot" onclick="goToSlide(3)"></button>
   </div>
 </section>
 
 <!-- SEARCH -->
-<div class="search-section" id="events">
+<div class="search-bar">
   <div class="search-inner">
-    <div class="search-wrap">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" placeholder="Search events — HYROX, marathon, triathlon...">
-    </div>
-    <select class="s-select">
-      <option value="">All sports</option>
-      <option>HYROX</option>
-      <option>Marathon</option>
-      <option>Triathlon</option>
-      <option>Trail Running</option>
-      <option>Cycling</option>
-    </select>
-    <select class="s-select">
-      <option value="">All cities</option>
-      <option>Milan</option>
-      <option>London</option>
-      <option>Berlin</option>
-      <option>Valencia</option>
-      <option>Dolomites</option>
-    </select>
-    <button class="s-btn">Search</button>
+    <input type="text" class="s-input" placeholder="Cerca gara, città o sport...">
+    <select class="s-select"><option>Tutti gli sport</option><option>Running</option><option>Trail Running</option><option>Ciclismo</option><option>Triathlon</option><option>Hyrox</option><option>Nuoto</option><option>Padel</option></select>
+    <select class="s-select"><option>Tutta Italia</option><option>Nord Italia</option><option>Centro Italia</option><option>Sud Italia</option></select>
+    <button class="s-btn">Cerca →</button>
   </div>
 </div>
 
-<!-- EVENTS SECTION -->
-<section class="section">
-  <div class="section-header">
-    <div>
-      <div class="eyebrow">Featured Listings</div>
-      <h2 class="section-title">Available Entries</h2>
+<!-- EVENTS -->
+<section class="section" id="events">
+  <div class="section-header reveal">
+    <div><div class="eyebrow">Disponibili ora</div><h2 class="section-title">Posti liberi</h2></div>
+    <a href="#" class="view-all">Vedi tutte →</a>
+  </div>
+  <div class="tags reveal">
+    <button class="tag active" onclick="filter(this,'all')">Tutti</button>
+    <button class="tag" onclick="filter(this,'running')">Running</button>
+    <button class="tag" onclick="filter(this,'ciclismo')">Ciclismo</button>
+    <button class="tag" onclick="filter(this,'triathlon')">Triathlon</button>
+    <button class="tag" onclick="filter(this,'trail')">Trail</button>
+    <button class="tag" onclick="filter(this,'hyrox')">Hyrox</button>
+  </div>
+  <div class="grid" id="grid">
+    <a href="#" class="card reveal d1" data-sport="running" onclick="openModal(event,'Maratona di Firenze 2025','Running · 42km · 29 Nov 2025 · Firenze','115')">
+      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
+        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/running.png" alt="Running" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
+        <span class="sport-badge">Running</span>
+        <span class="spots-badge">3 posti</span>
+      </div>
+      <div class="card-body">
+        <div class="card-seller"><div class="avatar">MR</div>Marco R. · Verificato</div>
+        <div class="card-meta"><span class="card-date">29 Nov 2025</span><span class="card-city">📍 Firenze</span></div>
+        <div class="card-title">Maratona di Firenze</div>
+        <div class="card-desc">42,195 km · Cat. M3 (40-44 anni) · Pettorale e chip inclusi</div>
+        <div class="card-footer">
+          <div><div class="price-label">Prezzo totale</div><div class="price-val">€115 <small>incl. segreteria</small></div></div>
+          <button class="card-btn">Acquista →</button>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="card reveal d2" data-sport="ciclismo" onclick="openModal(event,'Granfondo Cinque Terre 2025','Ciclismo · 105km · 12 Ott 2025 · La Spezia','130')">
+      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
+        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/ciclismo.png" alt="Ciclismo" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
+        <span class="sport-badge">Ciclismo</span>
+        <span class="spots-badge">1 posto</span>
+      </div>
+      <div class="card-body">
+        <div class="card-seller"><div class="avatar">GL</div>Giulia L. · Verificato</div>
+        <div class="card-meta"><span class="card-date">12 Ott 2025</span><span class="card-city">📍 La Spezia</span></div>
+        <div class="card-title">Granfondo Cinque Terre</div>
+        <div class="card-desc">105 km · 1944m D+ · Cat. F1 (donne 30-39)</div>
+        <div class="card-footer">
+          <div><div class="price-label">Prezzo totale</div><div class="price-val">€130 <small>incl. segreteria</small></div></div>
+          <button class="card-btn">Acquista →</button>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="card reveal d3" data-sport="trail" onclick="openModal(event,'Dolomiti Extreme Trail 2026','Trail · 55km · 28 Giu 2026 · Cortina','155')">
+      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
+        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/trail.png" alt="Trail" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
+        <span class="sport-badge">Trail</span>
+        <span class="spots-badge">2 posti</span>
+      </div>
+      <div class="card-body">
+        <div class="card-seller"><div class="avatar">PT</div>Paolo T. · Verificato</div>
+        <div class="card-meta"><span class="card-date">28 Giu 2026</span><span class="card-city">📍 Cortina</span></div>
+        <div class="card-title">Dolomiti Extreme Trail</div>
+        <div class="card-desc">55 km · 3.800m D+ · UTMB World Series · Cat. M1</div>
+        <div class="card-footer">
+          <div><div class="price-label">Prezzo totale</div><div class="price-val">€155 <small>incl. segreteria</small></div></div>
+          <button class="card-btn">Acquista →</button>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="card reveal d1" data-sport="triathlon" onclick="openModal(event,'Triathlon Milano 2025','Triathlon · Olimpico · 21 Set 2025 · Milano','125')">
+      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
+        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/triathlon.png" alt="Triathlon" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
+        <span class="sport-badge">Triathlon</span>
+        <span class="spots-badge">2 posti</span>
+      </div>
+      <div class="card-body">
+        <div class="card-seller"><div class="avatar">AF</div>Andrea F. · Verificato</div>
+        <div class="card-meta"><span class="card-date">21 Set 2025</span><span class="card-city">📍 Milano</span></div>
+        <div class="card-title">Triathlon Milano</div>
+        <div class="card-desc">Distanza olimpica · 1.5km nuoto + 40km bici + 10km corsa</div>
+        <div class="card-footer">
+          <div><div class="price-label">Prezzo totale</div><div class="price-val">€125 <small>incl. segreteria</small></div></div>
+          <button class="card-btn">Acquista →</button>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="card reveal d2" data-sport="hyrox" onclick="openModal(event,'HYROX Milano 2026','Hyrox · Individual Women · 15 Feb 2026 · Milano','170')">
+      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
+        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/hyrox.png" alt="Hyrox" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
+        <span class="sport-badge">Hyrox</span>
+        <span class="spots-badge">1 posto</span>
+      </div>
+      <div class="card-body">
+        <div class="card-seller"><div class="avatar">SR</div>Sara R. · Verificato</div>
+        <div class="card-meta"><span class="card-date">15 Feb 2026</span><span class="card-city">📍 Milano</span></div>
+        <div class="card-title">HYROX Milano</div>
+        <div class="card-desc">Individual Women · 8 stazioni + 8km corsa · Slot esaurito</div>
+        <div class="card-footer">
+          <div><div class="price-label">Prezzo totale</div><div class="price-val">€170 <small>incl. segreteria</small></div></div>
+          <button class="card-btn">Acquista →</button>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="card reveal d3" data-sport="nuoto" onclick="openModal(event,'Traversata Adriatica 2026','Nuoto · 5km · 06 Lug 2026 · Rimini','85')">
+      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
+        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/nuoto.png" alt="Nuoto" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
+        <span class="sport-badge">Nuoto</span>
+        <span class="spots-badge">3 posti</span>
+      </div>
+      <div class="card-body">
+        <div class="card-seller"><div class="avatar">LB</div>Luca B. · Verificato</div>
+        <div class="card-meta"><span class="card-date">06 Lug 2026</span><span class="card-city">📍 Rimini</span></div>
+        <div class="card-title">Traversata Adriatica</div>
+        <div class="card-desc">5 km · acque libere · Cat. M2 · Pacco gara incluso</div>
+        <div class="card-footer">
+          <div><div class="price-label">Prezzo totale</div><div class="price-val">€85 <small>incl. segreteria</small></div></div>
+          <button class="card-btn">Acquista →</button>
+        </div>
+      </div>
+    </a>
+  </div>
+
+<hr class="section-divider">
+
+<!-- ILLO SECTION - WHY -->
+<div class="illo-section">
+  <div class="illo-inner">
+    <div class="eyebrow">Perché sceglierci</div>
+    <h2 class="section-title">Il modo giusto per non perdere la tua iscrizione.</h2>
+    <div class="illo-grid">
+      <div class="illo-card">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="12" y="16" width="56" height="48" rx="3" fill="#E7D8B1" stroke="#2E2A24" stroke-width="2.5"></rect>
+          <rect x="12" y="16" width="56" height="16" rx="3" fill="#32CD32" stroke="#2E2A24" stroke-width="2.5"></rect>
+          <rect x="12" y="28" width="56" height="4" fill="#32CD32"></rect>
+          <path d="M26 50 L34 58 L54 38" stroke="#2E2A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          <text x="40" y="27" text-anchor="middle" font-size="9" fill="#2E2A24" font-weight="800" font-family="sans-serif">LEGALE</text>
+        </svg>
+        <h3>100% Legale</h3>
+        <p>Solo organizzatori che permettono ufficialmente il trasferimento. Ogni transazione è tracciata e documentata.</p>
+      </div>
+      <div class="illo-card">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="20" y="30" width="40" height="34" rx="3" fill="#E7D8B1" stroke="#2E2A24" stroke-width="2.5"></rect>
+          <path d="M28 30 L28 22 Q28 14 40 14 Q52 14 52 22 L52 30" stroke="#2E2A24" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+          <circle cx="40" cy="47" r="8" fill="#32CD32" stroke="#2E2A24" stroke-width="2"></circle>
+          <path d="M36 47 L39 50 L44 44" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <h3>Pagamento Sicuro</h3>
+        <p>I soldi vengono rilasciati solo dopo conferma del trasferimento. Rimborso garantito se qualcosa va storto.</p>
+      </div>
+      <div class="illo-card">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="24" fill="#E7D8B1" stroke="#2E2A24" stroke-width="2.5"></circle>
+          <path d="M40 24 L40 40 L52 40" stroke="#2E2A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="40" cy="40" r="4" fill="#32CD32" stroke="#2E2A24" stroke-width="2"></circle>
+          <path d="M40 16 L40 20" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M40 60 L40 64" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M16 40 L20 40" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
+          <path d="M60 40 L64 40" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <h3>Processo Rapido</h3>
+        <p>Gestiamo noi tutta la burocrazia con l'organizzatore. Il trasferimento avviene in media entro 48 ore.</p>
+      </div>
     </div>
-    <a href="#" class="view-all">View all <span>→</span></a>
   </div>
-  <div class="tags">
-    <button class="tag active">All</button>
-    <button class="tag">HYROX</button>
-    <button class="tag">Marathon</button>
-    <button class="tag">Triathlon</button>
-    <button class="tag">Trail Running</button>
-    <button class="tag">Cycling</button>
+</div>
+
+<hr class="section-divider">
+
+<!-- ORG -->
+<div class="org-wrap" id="organizzatori">
+  <div class="org-inner">
+    <div class="reveal">
+      <div class="eyebrow">Per gli organizzatori</div>
+      <h2>Smettila di gestire i trasferimenti via email.</h2>
+      <p>Oggi gestisci le sostituzioni manualmente: email, moduli, bonifici. Biidova automatizza tutto e ti fa guadagnare su ogni trasferimento.</p>
+      <div class="org-list">
+        <div class="org-item">Zero email manuali per i cambi nominativo</div>
+        <div class="org-item">Fee di segreteria garantita su ogni trasferimento</div>
+        <div class="org-item">Dashboard per monitorare tutte le sostituzioni</div>
+        <div class="org-item">Nessun costo di setup, nessun rischio</div>
+        <div class="org-item">Integrazione con Endu e Wedosport</div>
+      </div>
+    </div>
+    <div class="org-form reveal d1">
+      <h3>Diventa partner</h3>
+      <div class="form-group"><label class="form-label">Nome gara / organizzazione</label><input type="text" class="form-input" placeholder="es. Maratona di Roma"></div>
+      <div class="form-group"><label class="form-label">La tua email</label><input type="email" class="form-input" placeholder="nome@organizzazione.it"></div>
+      <div class="form-group"><label class="form-label">Quante edizioni organizzi/anno?</label><select class="form-input"><option>1 evento</option><option>2-5 eventi</option><option>6-10 eventi</option><option>Più di 10</option></select></div>
+      <button class="form-submit" onclick="this.textContent='✓ Ti contatteremo entro 24h'; this.style.background='#28A428'; this.disabled=true;">Voglio saperne di più →</button>
+    </div>
   </div>
-  <div class="grid">
-    <!-- Card 1 -->
-    <a href="#" class="card" onclick="openModal('buy');return false;">
-      <div class="card-thumb">
-        <div class="card-thumb-bg" style="background-image:url('images/hero-hyrox.jpg');"></div>
-        <span class="sport-badge">HYROX</span>
-        <span class="spots-badge">3 spots</span>
+</div>
+
+<!-- SELL CTA -->
+<div class="sell-wrap" id="vendi">
+  <div class="sell-inner reveal">
+    <div class="eyebrow" style="color:var(--grey-text);">Cedi la tua iscrizione</div>
+    <h2>Non puoi partecipare?<br><span class="lime">Non perdere i soldi.</span></h2>
+    <p>Inserisci la tua iscrizione in 2 minuti. Troviamo noi l'acquirente. Tu recuperi i soldi. Zero commissioni.</p>
+    <button class="btn-primary" onclick="openSell()">Inserisci la tua iscrizione →</button>
+    <p style="font-size:12px;color:var(--grey-text);margin-top:16px;">Solo gare con trasferimento ufficialmente permesso dall'organizzatore</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-logo">biid<span>ova</span></div><div class="footer-tagline">Il marketplace ufficiale per il trasferimento di iscrizioni sportive in Italia.</div></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Prodotto</h4><a href="#events">Gare disponibili</a><a href="#vendi">Cedi iscrizione</a><a href="#come-funziona">Come funziona</a></div>
+        <div class="footer-col"><h4>Organizzatori</h4><a href="#organizzatori">Diventa partner</a><a href="#">Dashboard</a><a href="#">Integrazioni</a></div>
+        <div class="footer-col"><h4>Biidova</h4><a href="#">Chi siamo</a><a href="#">Contatti</a><a href="#">Privacy</a></div>
       </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-date">Feb 2026</span>
-          <span class="card-dot"></span>
-          <span class="card-city">📍 Milan, IT</span>
-        </div>
-        <div class="card-title">HYROX Milan 2026</div>
-        <div class="card-desc">Individual entry — Wave 3 (09:00). Official bib transfer available.</div>
-        <div class="card-footer">
-          <div class="price-block">
-            <div class="price-label">Listed at</div>
-            <div class="price-val">€170 <small>+ fees</small></div>
-          </div>
-          <button class="card-btn">View entry</button>
-        </div>
-      </div>
-    </a>
-    <!-- Card 2 -->
-    <a href="#" class="card" onclick="openModal('buy');return false;">
-      <div class="card-thumb">
-        <div class="card-thumb-bg" style="background-image:url('images/hero-marathon.jpg');background-position:center;"></div>
-        <span class="sport-badge">Marathon</span>
-        <span class="spots-badge">1 spot</span>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-date">Dec 2026</span>
-          <span class="card-dot"></span>
-          <span class="card-city">📍 Valencia, ES</span>
-        </div>
-        <div class="card-title">Valencia Marathon 2026</div>
-        <div class="card-desc">Fastest marathon course in Europe. PB guaranteed. Full bib + timing chip.</div>
-        <div class="card-footer">
-          <div class="price-block">
-            <div class="price-label">Listed at</div>
-            <div class="price-val">€145 <small>+ fees</small></div>
-          </div>
-          <button class="card-btn">View entry</button>
-        </div>
-      </div>
-    </a>
-    <!-- Card 3 -->
-    <a href="#" class="card" onclick="openModal('buy');return false;">
-      <div class="card-thumb">
-        <div class="card-thumb-bg" style="background-image:url('images/hero-marathon.jpg');background-position:right center;"></div>
-        <span class="sport-badge">Marathon</span>
-        <span class="spots-badge">2 spots</span>
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-date">Sep 2026</span>
-          <span class="card-dot"></span>
-          <span class="card-city">📍 Berlin, DE</span>
-        </div>
-        <div class="card-title">Berlin Marathon 2026
+    </div>
+    <div class="footer-bottom"><span>© 2025 Biidova. Tutti i diritti riservati.</span><div style="display:flex;gap:20px;"><a href="#" style="color:var(--grey-text);text-decoration:none;font-size:13px;">Privacy</a><a href="#" style="color:var(--grey-text);text-decoration:none;font-size:13px;">Termini</a></div></div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-body">
+      <h3 id="m-title">Acquista iscrizione</h3>
+      <div class="modal-info"><strong id="m-name">—</strong><span id="m-details">—</span></div>
+      <div class="modal-price"><span class="modal-price-label">Totale (incl. segreteria organizzatore)</span><span class="modal-price-val" id="m-price">—</span></div>
+      <div class="form-group"><label class="form-label">La tua email</label><input type="email" class="form-input" id="m-email" placeholder="nome@email.com"></div>
+      <button class="form-submit" onclick="submitBuy()">Conferma acquisto →</button>
+      <p class="modal-note">Rimborso garantito se il trasferimento non va a buon fine.</p>
+    </div>
+    <div id="modal-success" class="success-state" style="display:none;">
+      <div class="success-icon">🏅</div>
+      <h3>Richiesta inviata!</h3>
+      <p>Ti contatteremo entro 24h con la conferma del trasferimento.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  function filter(btn,sport) { document.querySelectorAll('.tag').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.card').forEach(c=>c.style.display=(sport==='all'||c.dataset.sport===sport)?'block':'none'); }
+  function switchTab(btn,tab) { document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); document.getElementById('steps-acq').style.display=tab==='acq'?'grid':'none'; document.getElementById('steps-vend').style.display=tab==='vend'?'grid':'none'; }
+  function openModal(e,name,details,price) { e.preventDefault(); document.getElementById('m-title').textContent='Acquista iscrizione'; document.getElementById('m-name').textContent=name; document.getElementById('m-details').textContent=details; document.getElementById('m-price').textContent='€'+price; document.getElementById('modal-body').style.display='block'; document.getElementById('modal-success').style.display='none'; document.getElementById('modal').classList.add('open'); }
+  function openSell() { document.getElementById('m-title').textContent='Cedi la tua iscrizione'; document.getElementById('m-name').textContent='Inserisci i dati della tua iscrizione'; document.getElementById('m-details').textContent='Ti contatteremo per verificare e pubblicare il tuo annuncio'; document.getElementById('m-price').textContent='€0'; document.getElementById('modal-body').style.display='block'; document.getElementById('modal-success').style.display='none'; document.getElementById('modal').classList.add('open'); }
+  function closeModal() { document.getElementById('modal').classList.remove('open'); }
+  function submitBuy() { const em=document.getElementById('m-email').value; if(!em||!em.includes('@')){alert('Inserisci una email valida');return;} document.getElementById('modal-body').style.display='none'; document.getElementById('modal-success').style.display='block'; }
+  document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+</script>
+
+
+</section><a href="blob:https://biidova-website.vercel.app/a2ad4be2-ac2b-4e4c-80fb-cf79c2bfd9bc" download="athletes-hero.png" id="download-link-0"></a></body></html>
