@@ -1,7 +1,7 @@
-<html lang="it"><head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biidova — Trasferisci la tua iscrizione sportiva</title>
+  <title>Biidova — Buy & Sell Entries for Sold-Out Events</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
@@ -312,309 +312,293 @@
       .stat-val { font-size: 20px; }
     }
 
-  </style>
+  
+
+    /* PREMIUM GLOBAL V2 ADDITIONS */
+    .mega-strip { background: var(--black); color: var(--white); border-bottom: 2.5px solid var(--border); overflow:hidden; }
+    .mega-strip-inner { display:flex; gap:42px; padding:12px 0; white-space:nowrap; animation: marquee 24s linear infinite; font-size:12px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .mega-strip-inner span { display:inline-flex; align-items:center; gap:10px; }
+    .mega-strip-inner span::before { content:''; width:8px; height:8px; background:var(--lime); border:1px solid var(--white); border-radius:50%; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .category-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:18px; }
+    .category-card { min-height:260px; border:2.5px solid var(--border); background:var(--beige); box-shadow:4px 4px 0 var(--border); padding:22px; position:relative; overflow:hidden; text-decoration:none; color:var(--black); transition:all .15s; display:flex; flex-direction:column; justify-content:space-between; }
+    .category-card:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--border); }
+    .category-card img { position:absolute; right:-10px; bottom:6px; width:150px; height:150px; object-fit:contain; opacity:.92; }
+    .category-card h3 { font-size:28px; font-weight:900; letter-spacing:-.04em; line-height:.95; position:relative; z-index:1; }
+    .category-card p { font-size:13px; color:var(--grey-text); line-height:1.55; max-width:190px; position:relative; z-index:1; }
+    .category-chip { width:max-content; background:var(--white); border:2px solid var(--border); padding:6px 10px; font-size:10px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; box-shadow:2px 2px 0 var(--border); position:relative; z-index:1; }
+
+    .policy-wall { display:grid; grid-template-columns: 1.1fr .9fr; gap:22px; align-items:stretch; }
+    .policy-main { background:var(--black); color:var(--white); border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); padding:38px; }
+    .policy-main h2 { font-size:clamp(34px,4vw,60px); font-weight:900; letter-spacing:-.05em; line-height:.95; margin-bottom:18px; }
+    .policy-main p { color:#e8e0d4; font-size:16px; line-height:1.75; max-width:620px; }
+    .policy-list { display:grid; gap:14px; }
+    .policy-item { background:var(--white); border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); padding:20px; }
+    .policy-item strong { display:block; font-size:15px; font-weight:900; margin-bottom:5px; }
+    .policy-item span { display:block; font-size:13px; color:var(--grey-text); line-height:1.55; }
+
+    .event-showcase { display:grid; grid-template-columns: 1.2fr .8fr; gap:20px; }
+    .featured-event { min-height:420px; background:var(--black); color:var(--white); border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); padding:28px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; }
+    .featured-event img { position:absolute; right:20px; bottom:20px; width:270px; height:270px; object-fit:contain; opacity:.85; filter: drop-shadow(8px 8px 0 rgba(0,0,0,.2)); }
+    .featured-event h3 { font-size:clamp(38px,5vw,78px); font-weight:900; letter-spacing:-.06em; line-height:.88; max-width:520px; position:relative; z-index:1; }
+    .featured-event p { color:#e8e0d4; line-height:1.7; max-width:420px; margin-top:14px; position:relative; z-index:1; }
+    .mini-events { display:grid; gap:16px; }
+    .mini-event { background:var(--white); border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); padding:20px; display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+    .mini-event h4 { font-size:18px; font-weight:900; letter-spacing:-.03em; margin-bottom:5px; }
+    .mini-event p { color:var(--grey-text); font-size:13px; line-height:1.5; }
+    .mini-badge { background:var(--lime); border:2px solid var(--border); padding:5px 8px; font-size:10px; font-weight:900; text-transform:uppercase; white-space:nowrap; }
+
+    .split-cta { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .cta-panel { border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); background:var(--white); padding:34px; min-height:290px; display:flex; flex-direction:column; justify-content:space-between; }
+    .cta-panel.dark { background:var(--black); color:var(--white); }
+    .cta-panel h3 { font-size:clamp(28px,3vw,46px); font-weight:900; letter-spacing:-.04em; line-height:1; margin-bottom:12px; }
+    .cta-panel p { color:var(--grey-text); line-height:1.7; max-width:430px; }
+    .cta-panel.dark p { color:#e8e0d4; }
+
+    .roadmap { display:grid; grid-template-columns: repeat(4,1fr); gap:16px; }
+    .road-card { border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); padding:22px; background:var(--white); }
+    .road-card .num { font-size:44px; font-weight:900; color:var(--beige-dark); letter-spacing:-.05em; line-height:1; margin-bottom:10px; }
+    .road-card h3 { font-size:18px; font-weight:900; margin-bottom:8px; }
+    .road-card p { font-size:13px; color:var(--grey-text); line-height:1.6; }
+
+    .faq { border:2.5px solid var(--border); box-shadow:4px 4px 0 var(--border); }
+    .faq-row { padding:20px 22px; border-bottom:2px solid var(--border); background:var(--white); }
+    .faq-row:last-child { border-bottom:none; }
+    .faq-row strong { display:block; font-size:15px; font-weight:900; margin-bottom:6px; }
+    .faq-row span { color:var(--grey-text); font-size:14px; line-height:1.65; }
+
+
+    /* LANGUAGE SWITCH */
+    .nav-actions { display:flex; align-items:center; gap:12px; }
+    .lang-switch { display:flex; align-items:center; border:2.5px solid var(--border); background:var(--white); box-shadow:3px 3px 0 var(--border); overflow:hidden; }
+    .lang-btn { border:none; background:transparent; color:var(--grey-text); font-family:var(--font); font-size:12px; font-weight:900; letter-spacing:.08em; padding:9px 10px; cursor:pointer; transition:all .15s; }
+    .lang-btn + .lang-btn { border-left:2px solid var(--border); }
+    .lang-btn.active { background:var(--black); color:var(--white); }
+    @media (max-width: 900px) { .nav-actions { gap:8px; } .lang-switch { box-shadow:2px 2px 0 var(--border); } .lang-btn { padding:8px 8px; font-size:11px; } }
+
+    @media (max-width: 900px) {
+      .category-grid, .roadmap { grid-template-columns:1fr; }
+      .policy-wall, .event-showcase, .split-cta { grid-template-columns:1fr; }
+      .featured-event { min-height:520px; }
+      .featured-event img { width:220px; height:220px; }
+    }
+</style>
 </head>
 <body>
 
 <nav>
   <a href="#" class="logo">biid<span>ova</span></a>
   <ul class="nav-links">
-    <li><a href="#events">Esplora</a></li>
-    <li><a href="#come-funziona">Come funziona</a></li>
-    <li><a href="#organizzatori">Organizzatori</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#trust">Safety</a></li>
+    <li><a href="#vendi">Sell</a></li>
   </ul>
-  <a href="#vendi" class="nav-cta">Cedi iscrizione →</a>
+  <div class="nav-actions">
+    <div class="lang-switch" aria-label="Language selector">
+      <button class="lang-btn active" type="button" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" type="button" data-lang="it" onclick="setLang('it')">IT</button>
+    </div>
+    <a href="#vendi" class="nav-cta">Sell entry →</a>
+  </div>
 </nav>
 
-<!-- HERO -->
-<section style="position:relative; border-bottom: 2.5px solid var(--border); overflow:hidden; min-height: 580px; display:flex; align-items:center;">
-  <!-- Hero background image -->
+<section style="position:relative; border-bottom: 2.5px solid var(--border); overflow:hidden; min-height: 660px; display:flex; align-items:center;">
   <div style="position:absolute; inset:0; z-index:0;">
     <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/athletes-hero.png" style="width:100%; height:100%; object-fit:cover; object-position:center;" alt="Athletes hero">
-    <!-- Overlay per leggibilità testo -->
-    <div style="position:absolute; inset:0; background: linear-gradient(to right, rgba(255,255,255,0.95) 45%, rgba(255,255,255,0.3) 100%);"></div>
+    <div style="position:absolute; inset:0; background: linear-gradient(to right, rgba(255,255,255,0.97) 38%, rgba(255,255,255,0.62) 62%, rgba(255,255,255,0.16) 100%);"></div>
   </div>
-  <!-- Content -->
-  <div style="position:relative; z-index:1; padding: 80px 48px; max-width:640px;">
-    <div class="hero-tag">Marketplace ufficiale · Italia</div>
-    <h1 style="font-size: clamp(48px, 6vw, 88px); font-weight:900; line-height:0.95; letter-spacing:-0.04em; margin-bottom:24px;">
-      Non puoi<br>gareggiare?<br><span style="color:var(--lime-dark);">Qualcuno</span><br>può farlo.
+  <div style="position:relative; z-index:1; padding: 96px 48px 82px; max-width:780px;">
+    <div class="hero-tag">Global transfer marketplace · Launching with HYROX + endurance</div>
+    <h1 style="font-size: clamp(48px, 7vw, 96px); font-weight:900; line-height:0.91; letter-spacing:-0.055em; margin-bottom:24px;">
+      Buy & sell<br>entries for<br><span style="color:var(--lime-dark);">sold-out</span><br>events.
     </h1>
-    <p style="font-size:17px; color:var(--grey-text); max-width:440px; margin-bottom:36px; line-height:1.7;">
-      Il primo marketplace italiano per il <strong style="color:var(--black);">trasferimento ufficiale di iscrizioni sportive</strong>. Legale, sicuro, in pochi minuti.
+    <p style="font-size:18px; color:var(--grey-text); max-width:560px; margin-bottom:36px; line-height:1.75;">
+      Biidova is the safest way to transfer race and fitness event entries worldwide — starting with <strong style="color:var(--black);">HYROX, marathons, trail running and endurance events</strong> where official name change is allowed.
     </p>
     <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:48px;">
-      <a href="#events" class="btn-primary">Trova un posto →</a>
-      <a href="#vendi" class="btn-secondary">Vendi la tua iscrizione</a>
+      <a href="#events" class="btn-primary">Browse events →</a>
+      <a href="#vendi" class="btn-secondary">Sell your entry</a>
     </div>
     <div class="hero-stats">
-      <div><div class="stat-val">8<em>K+</em></div><div class="stat-label">gare/anno</div></div>
-      <div><div class="stat-val">€<em>30–150</em></div><div class="stat-label">costo medio</div></div>
-      <div><div class="stat-val">0<em>%</em></div><div class="stat-label">commissione venditore</div></div>
+      <div><div class="stat-val">100<em>%</em></div><div class="stat-label">transferable only</div></div>
+      <div><div class="stat-val">24<em>h</em></div><div class="stat-label">guided workflow</div></div>
+      <div><div class="stat-val">0<em>scam</em></div><div class="stat-label">protected process</div></div>
     </div>
   </div>
 </section>
 
-<!-- SEARCH -->
+<div class="mega-strip"><div class="mega-strip-inner">
+  <span>HYROX</span><span>Marathons</span><span>Trail running</span><span>Functional fitness</span><span>Endurance events</span><span>Official transfers only</span><span>Verified listings</span><span>Protected payments</span>
+  <span>HYROX</span><span>Marathons</span><span>Trail running</span><span>Functional fitness</span><span>Endurance events</span><span>Official transfers only</span><span>Verified listings</span><span>Protected payments</span>
+</div></div>
+
 <div class="search-bar">
   <div class="search-inner">
-    <input type="text" class="s-input" placeholder="Cerca gara, città o sport...">
-    <select class="s-select"><option>Tutti gli sport</option><option>Running</option><option>Trail Running</option><option>Ciclismo</option><option>Triathlon</option><option>Hyrox</option><option>Nuoto</option><option>Padel</option></select>
-    <select class="s-select"><option>Tutta Italia</option><option>Nord Italia</option><option>Centro Italia</option><option>Sud Italia</option></select>
-    <button class="s-btn">Cerca →</button>
+    <input type="text" class="s-input" placeholder="Search event, city, country or sport...">
+    <select class="s-select"><option>All sports</option><option>HYROX</option><option>Marathon</option><option>Trail running</option><option>Functional fitness</option><option>Triathlon</option></select>
+    <select class="s-select"><option>Worldwide</option><option>Europe</option><option>United Kingdom</option><option>Italy</option><option>Spain</option><option>Germany</option></select>
+    <button class="s-btn">Search →</button>
   </div>
 </div>
 
-<!-- EVENTS -->
+<section class="section" id="categories">
+  <div class="section-header reveal">
+    <div><div class="eyebrow">Launch categories</div><h2 class="section-title">Focused now. Global later.</h2></div>
+    <a href="#events" class="view-all">Explore →</a>
+  </div>
+  <div class="category-grid">
+    <a class="category-card reveal d1" href="#events"><span class="category-chip">High hype</span><h3>HYROX</h3><p>Sold-out races, doubles changes, last-minute injuries, huge social demand.</p><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/hyrox.png" alt="HYROX"></a>
+    <a class="category-card reveal d2" href="#events"><span class="category-chip">Stable volume</span><h3>Major<br>Marathons</h3><p>Berlin, Valencia, Paris and global road races with strong resale demand.</p><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/running.png" alt="Running"></a>
+    <a class="category-card reveal d3" href="#events"><span class="category-chip">Premium niche</span><h3>Trail<br>Running</h3><p>Limited entries, mountain events and athletes looking for safe transfers.</p><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/trail.png" alt="Trail"></a>
+    <a class="category-card reveal d1" href="#events"><span class="category-chip">Next phase</span><h3>Endurance</h3><p>Triathlon, cycling and multi-sport events added only when transfer is clear.</p><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/triathlon.png" alt="Endurance"></a>
+  </div>
+</section>
+
+<hr class="section-divider">
+
 <section class="section" id="events">
   <div class="section-header reveal">
-    <div><div class="eyebrow">Disponibili ora</div><h2 class="section-title">Posti liberi</h2></div>
-    <a href="#" class="view-all">Vedi tutte →</a>
+    <div><div class="eyebrow">Available examples</div><h2 class="section-title">Sold-out access, safely transferred.</h2></div>
+    <a href="#request" class="view-all">Request an entry →</a>
   </div>
   <div class="tags reveal">
-    <button class="tag active" onclick="filter(this,'all')">Tutti</button>
-    <button class="tag" onclick="filter(this,'running')">Running</button>
-    <button class="tag" onclick="filter(this,'ciclismo')">Ciclismo</button>
-    <button class="tag" onclick="filter(this,'triathlon')">Triathlon</button>
+    <button class="tag active" onclick="filter(this,'all')">All</button>
+    <button class="tag" onclick="filter(this,'hyrox')">HYROX</button>
+    <button class="tag" onclick="filter(this,'running')">Marathon</button>
     <button class="tag" onclick="filter(this,'trail')">Trail</button>
-    <button class="tag" onclick="filter(this,'hyrox')">Hyrox</button>
+    <button class="tag" onclick="filter(this,'fitness')">Fitness</button>
   </div>
   <div class="grid" id="grid">
-    <a href="#" class="card reveal d1" data-sport="running" onclick="openModal(event,'Maratona di Firenze 2025','Running · 42km · 29 Nov 2025 · Firenze','115')">
-      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
-        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/running.png" alt="Running" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
-        <span class="sport-badge">Running</span>
-        <span class="spots-badge">3 posti</span>
-      </div>
-      <div class="card-body">
-        <div class="card-seller"><div class="avatar">MR</div>Marco R. · Verificato</div>
-        <div class="card-meta"><span class="card-date">29 Nov 2025</span><span class="card-city">📍 Firenze</span></div>
-        <div class="card-title">Maratona di Firenze</div>
-        <div class="card-desc">42,195 km · Cat. M3 (40-44 anni) · Pettorale e chip inclusi</div>
-        <div class="card-footer">
-          <div><div class="price-label">Prezzo totale</div><div class="price-val">€115 <small>incl. segreteria</small></div></div>
-          <button class="card-btn">Acquista →</button>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="card reveal d2" data-sport="ciclismo" onclick="openModal(event,'Granfondo Cinque Terre 2025','Ciclismo · 105km · 12 Ott 2025 · La Spezia','130')">
-      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
-        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/ciclismo.png" alt="Ciclismo" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
-        <span class="sport-badge">Ciclismo</span>
-        <span class="spots-badge">1 posto</span>
-      </div>
-      <div class="card-body">
-        <div class="card-seller"><div class="avatar">GL</div>Giulia L. · Verificato</div>
-        <div class="card-meta"><span class="card-date">12 Ott 2025</span><span class="card-city">📍 La Spezia</span></div>
-        <div class="card-title">Granfondo Cinque Terre</div>
-        <div class="card-desc">105 km · 1944m D+ · Cat. F1 (donne 30-39)</div>
-        <div class="card-footer">
-          <div><div class="price-label">Prezzo totale</div><div class="price-val">€130 <small>incl. segreteria</small></div></div>
-          <button class="card-btn">Acquista →</button>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="card reveal d3" data-sport="trail" onclick="openModal(event,'Dolomiti Extreme Trail 2026','Trail · 55km · 28 Giu 2026 · Cortina','155')">
-      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
-        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/trail.png" alt="Trail" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
-        <span class="sport-badge">Trail</span>
-        <span class="spots-badge">2 posti</span>
-      </div>
-      <div class="card-body">
-        <div class="card-seller"><div class="avatar">PT</div>Paolo T. · Verificato</div>
-        <div class="card-meta"><span class="card-date">28 Giu 2026</span><span class="card-city">📍 Cortina</span></div>
-        <div class="card-title">Dolomiti Extreme Trail</div>
-        <div class="card-desc">55 km · 3.800m D+ · UTMB World Series · Cat. M1</div>
-        <div class="card-footer">
-          <div><div class="price-label">Prezzo totale</div><div class="price-val">€155 <small>incl. segreteria</small></div></div>
-          <button class="card-btn">Acquista →</button>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="card reveal d1" data-sport="triathlon" onclick="openModal(event,'Triathlon Milano 2025','Triathlon · Olimpico · 21 Set 2025 · Milano','125')">
-      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
-        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/triathlon.png" alt="Triathlon" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
-        <span class="sport-badge">Triathlon</span>
-        <span class="spots-badge">2 posti</span>
-      </div>
-      <div class="card-body">
-        <div class="card-seller"><div class="avatar">AF</div>Andrea F. · Verificato</div>
-        <div class="card-meta"><span class="card-date">21 Set 2025</span><span class="card-city">📍 Milano</span></div>
-        <div class="card-title">Triathlon Milano</div>
-        <div class="card-desc">Distanza olimpica · 1.5km nuoto + 40km bici + 10km corsa</div>
-        <div class="card-footer">
-          <div><div class="price-label">Prezzo totale</div><div class="price-val">€125 <small>incl. segreteria</small></div></div>
-          <button class="card-btn">Acquista →</button>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="card reveal d2" data-sport="hyrox" onclick="openModal(event,'HYROX Milano 2026','Hyrox · Individual Women · 15 Feb 2026 · Milano','170')">
-      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
-        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/hyrox.png" alt="Hyrox" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
-        <span class="sport-badge">Hyrox</span>
-        <span class="spots-badge">1 posto</span>
-      </div>
-      <div class="card-body">
-        <div class="card-seller"><div class="avatar">SR</div>Sara R. · Verificato</div>
-        <div class="card-meta"><span class="card-date">15 Feb 2026</span><span class="card-city">📍 Milano</span></div>
-        <div class="card-title">HYROX Milano</div>
-        <div class="card-desc">Individual Women · 8 stazioni + 8km corsa · Slot esaurito</div>
-        <div class="card-footer">
-          <div><div class="price-label">Prezzo totale</div><div class="price-val">€170 <small>incl. segreteria</small></div></div>
-          <button class="card-btn">Acquista →</button>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="card reveal d3" data-sport="nuoto" onclick="openModal(event,'Traversata Adriatica 2026','Nuoto · 5km · 06 Lug 2026 · Rimini','85')">
-      <div class="card-thumb" style="background:#EBD4AA; display:flex; align-items:center; justify-content:center; height:180px; overflow:hidden; position:relative; padding:8px;">
-        <img src="https://raw.githubusercontent.com/biidova/biidova-images/main/nuoto.png" alt="Nuoto" style="width:90%; max-width:160px; height:155px; object-fit:contain; object-position:center; display:block;">
-        <span class="sport-badge">Nuoto</span>
-        <span class="spots-badge">3 posti</span>
-      </div>
-      <div class="card-body">
-        <div class="card-seller"><div class="avatar">LB</div>Luca B. · Verificato</div>
-        <div class="card-meta"><span class="card-date">06 Lug 2026</span><span class="card-city">📍 Rimini</span></div>
-        <div class="card-title">Traversata Adriatica</div>
-        <div class="card-desc">5 km · acque libere · Cat. M2 · Pacco gara incluso</div>
-        <div class="card-footer">
-          <div><div class="price-label">Prezzo totale</div><div class="price-val">€85 <small>incl. segreteria</small></div></div>
-          <button class="card-btn">Acquista →</button>
-        </div>
-      </div>
-    </a>
+    <a href="#" class="card reveal d1" data-sport="hyrox" onclick="openModal(event,'HYROX Milan 2026','HYROX · Individual Women · Milan · Transfer allowed','170')"><div class="card-thumb"><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/hyrox.png" alt="Hyrox" style="width:90%; max-width:160px; height:155px; object-fit:contain;"><span class="sport-badge">HYROX</span><span class="spots-badge">1 entry</span></div><div class="card-body"><div class="card-seller"><div class="avatar">SR</div>Verified seller</div><div class="card-meta"><span class="card-date">Feb 2026</span><span class="card-city">📍 Milan</span></div><div class="card-title">HYROX Milan</div><div class="card-desc">Individual Women · Sold-out slot · AI-guided transfer workflow</div><div class="card-footer"><div><div class="price-label">Total price</div><div class="price-val">€170</div></div><button class="card-btn">Buy →</button></div></div></a>
+    <a href="#" class="card reveal d2" data-sport="running" onclick="openModal(event,'Valencia Marathon 2026','Marathon · 42.2km · Valencia · Transfer allowed','145')"><div class="card-thumb"><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/running.png" alt="Running" style="width:90%; max-width:160px; height:155px; object-fit:contain;"><span class="sport-badge">Marathon</span><span class="spots-badge">2 entries</span></div><div class="card-body"><div class="card-seller"><div class="avatar">LM</div>Verified seller</div><div class="card-meta"><span class="card-date">Dec 2026</span><span class="card-city">📍 Valencia</span></div><div class="card-title">Valencia Marathon</div><div class="card-desc">Fast course · International demand · Protected payment</div><div class="card-footer"><div><div class="price-label">Total price</div><div class="price-val">€145</div></div><button class="card-btn">Buy →</button></div></div></a>
+    <a href="#" class="card reveal d3" data-sport="running" onclick="openModal(event,'Berlin Marathon 2026','Marathon · 42.2km · Berlin · Policy verified','210')"><div class="card-thumb"><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/running.png" alt="Running" style="width:90%; max-width:160px; height:155px; object-fit:contain;"><span class="sport-badge">Marathon</span><span class="spots-badge">Waitlist</span></div><div class="card-body"><div class="card-seller"><div class="avatar">AK</div>Verified seller</div><div class="card-meta"><span class="card-date">Sep 2026</span><span class="card-city">📍 Berlin</span></div><div class="card-title">Berlin Marathon</div><div class="card-desc">Major marathon · Buyer request matching · Transfer policy checked</div><div class="card-footer"><div><div class="price-label">From</div><div class="price-val">€210</div></div><button class="card-btn">Request →</button></div></div></a>
+    <a href="#" class="card reveal d1" data-sport="trail" onclick="openModal(event,'Lavaredo Ultra Trail 2026','Trail · Dolomites · Transfer guidance','155')"><div class="card-thumb"><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/trail.png" alt="Trail" style="width:90%; max-width:160px; height:155px; object-fit:contain;"><span class="sport-badge">Trail</span><span class="spots-badge">1 entry</span></div><div class="card-body"><div class="card-seller"><div class="avatar">PT</div>Verified seller</div><div class="card-meta"><span class="card-date">Jun 2026</span><span class="card-city">📍 Cortina</span></div><div class="card-title">Lavaredo Ultra Trail</div><div class="card-desc">Mountain race · Entry transfer support · Document guidance</div><div class="card-footer"><div><div class="price-label">Total price</div><div class="price-val">€155</div></div><button class="card-btn">Buy →</button></div></div></a>
+    <a href="#" class="card reveal d2" data-sport="hyrox" onclick="openModal(event,'HYROX London 2026','HYROX · Doubles Men · London · Partner replacement','190')"><div class="card-thumb"><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/hyrox.png" alt="Hyrox" style="width:90%; max-width:160px; height:155px; object-fit:contain;"><span class="sport-badge">HYROX</span><span class="spots-badge">Doubles</span></div><div class="card-body"><div class="card-seller"><div class="avatar">TH</div>Verified seller</div><div class="card-meta"><span class="card-date">Mar 2026</span><span class="card-city">📍 London</span></div><div class="card-title">HYROX London</div><div class="card-desc">Doubles Men · Partner change / entry transfer · Sold out</div><div class="card-footer"><div><div class="price-label">Total price</div><div class="price-val">€190</div></div><button class="card-btn">Buy →</button></div></div></a>
+    <a href="#" class="card reveal d3" data-sport="fitness" onclick="openModal(event,'Functional Fitness Finals','Fitness · Team entry · Transfer allowed','120')"><div class="card-thumb"><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/triathlon.png" alt="Fitness" style="width:90%; max-width:160px; height:155px; object-fit:contain;"><span class="sport-badge">Fitness</span><span class="spots-badge">Team</span></div><div class="card-body"><div class="card-seller"><div class="avatar">GF</div>Verified seller</div><div class="card-meta"><span class="card-date">May 2026</span><span class="card-city">📍 Madrid</span></div><div class="card-title">Functional Fitness Finals</div><div class="card-desc">Team category · Name change supported · Secure handover</div><div class="card-footer"><div><div class="price-label">Total price</div><div class="price-val">€120</div></div><button class="card-btn">Buy →</button></div></div></a>
   </div>
+</section>
 
-<hr class="section-divider">
+<div class="how-wrap" id="come-funziona">
+  <div class="how-inner">
+    <div class="eyebrow">How it works</div><h2 class="section-title" style="margin-bottom:28px;">Simple for athletes. Controlled for Biidova.</h2>
+    <div class="tabs"><button class="tab active" onclick="switchTab(this,'buy')">Buy</button><button class="tab" onclick="switchTab(this,'sell')">Sell</button></div>
+    <div class="steps" id="steps-buy"><div class="step"><div class="step-num">01</div><div class="step-line"></div><h3>Find an event</h3><p>Browse sold-out races and fitness events where official transfer is allowed.</p></div><div class="step"><div class="step-num">02</div><div class="step-line"></div><h3>Pay safely</h3><p>Your payment is protected while the transfer is verified and completed.</p></div><div class="step"><div class="step-num">03</div><div class="step-line"></div><h3>Get guided</h3><p>Biidova gives you the transfer instructions, documents and timeline.</p></div></div>
+    <div class="steps" id="steps-sell" style="display:none;"><div class="step"><div class="step-num">01</div><div class="step-line"></div><h3>List your entry</h3><p>Add event, category, price and proof of registration in a few minutes.</p></div><div class="step"><div class="step-num">02</div><div class="step-line"></div><h3>We verify it</h3><p>Only official transferable entries are published. This keeps the marketplace clean.</p></div><div class="step"><div class="step-num">03</div><div class="step-line"></div><h3>Transfer & payout</h3><p>Once the buyer is transferred, the seller receives the payout.</p></div></div>
+  </div>
+</div>
 
-<!-- ILLO SECTION - WHY -->
+<section class="section" id="trust">
+  <div class="policy-wall">
+    <div class="policy-main reveal"><div class="eyebrow" style="color:#d8c6a3;">The real moat</div><h2>Only events where transfer is officially allowed.</h2><p>Biidova is not a grey market. Every supported event needs a clear transfer path: deadline, fee, method and proof. The marketplace starts narrow, trusted and operational — then expands globally sport by sport.</p></div>
+    <div class="policy-list reveal d1">
+      <div class="policy-item"><strong>Transfer policy verification</strong><span>We track if name change is allowed, how it works and what documents are needed.</span></div>
+      <div class="policy-item"><strong>Verified listings</strong><span>Sellers submit proof before the entry appears publicly.</span></div>
+      <div class="policy-item"><strong>Protected payment</strong><span>Funds move only after the transfer workflow is progressing correctly.</span></div>
+      <div class="policy-item"><strong>AI-assisted operations</strong><span>AI helps read rules, generate instructions and reduce manual support.</span></div>
+    </div>
+  </div>
+</section>
+
 <div class="illo-section">
   <div class="illo-inner">
-    <div class="eyebrow">Perché sceglierci</div>
-    <h2 class="section-title">Il modo giusto per non perdere la tua iscrizione.</h2>
-    <div class="illo-grid">
-      <div class="illo-card">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <rect x="12" y="16" width="56" height="48" rx="3" fill="#E7D8B1" stroke="#2E2A24" stroke-width="2.5"></rect>
-          <rect x="12" y="16" width="56" height="16" rx="3" fill="#32CD32" stroke="#2E2A24" stroke-width="2.5"></rect>
-          <rect x="12" y="28" width="56" height="4" fill="#32CD32"></rect>
-          <path d="M26 50 L34 58 L54 38" stroke="#2E2A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-          <text x="40" y="27" text-anchor="middle" font-size="9" fill="#2E2A24" font-weight="800" font-family="sans-serif">LEGALE</text>
-        </svg>
-        <h3>100% Legale</h3>
-        <p>Solo organizzatori che permettono ufficialmente il trasferimento. Ogni transazione è tracciata e documentata.</p>
-      </div>
-      <div class="illo-card">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <rect x="20" y="30" width="40" height="34" rx="3" fill="#E7D8B1" stroke="#2E2A24" stroke-width="2.5"></rect>
-          <path d="M28 30 L28 22 Q28 14 40 14 Q52 14 52 22 L52 30" stroke="#2E2A24" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
-          <circle cx="40" cy="47" r="8" fill="#32CD32" stroke="#2E2A24" stroke-width="2"></circle>
-          <path d="M36 47 L39 50 L44 44" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-        <h3>Pagamento Sicuro</h3>
-        <p>I soldi vengono rilasciati solo dopo conferma del trasferimento. Rimborso garantito se qualcosa va storto.</p>
-      </div>
-      <div class="illo-card">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <circle cx="40" cy="40" r="24" fill="#E7D8B1" stroke="#2E2A24" stroke-width="2.5"></circle>
-          <path d="M40 24 L40 40 L52 40" stroke="#2E2A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-          <circle cx="40" cy="40" r="4" fill="#32CD32" stroke="#2E2A24" stroke-width="2"></circle>
-          <path d="M40 16 L40 20" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
-          <path d="M40 60 L40 64" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
-          <path d="M16 40 L20 40" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
-          <path d="M60 40 L64 40" stroke="#2E2A24" stroke-width="2" stroke-linecap="round"></path>
-        </svg>
-        <h3>Processo Rapido</h3>
-        <p>Gestiamo noi tutta la burocrazia con l'organizzatore. Il trasferimento avviene in media entro 48 ore.</p>
-      </div>
+    <div class="eyebrow">Global event engine</div><h2 class="section-title">A database that becomes the product.</h2>
+    <div class="roadmap" style="margin-top:32px;">
+      <div class="road-card"><div class="num">01</div><h3>Event catalog</h3><p>HYROX, marathons, trail and endurance events with verified transfer info.</p></div>
+      <div class="road-card"><div class="num">02</div><h3>Policy graph</h3><p>Deadline, transfer fee, organizer process, forms and restrictions.</p></div>
+      <div class="road-card"><div class="num">03</div><h3>Demand matching</h3><p>Buyers can request entries even when no listing is active yet.</p></div>
+      <div class="road-card"><div class="num">04</div><h3>Automation layer</h3><p>AI-generated transfer guidance, emails, reminders and status updates.</p></div>
     </div>
   </div>
 </div>
 
-<hr class="section-divider">
+<section class="section">
+  <div class="event-showcase">
+    <div class="featured-event reveal"><div><span class="hero-tag">Featured vertical</span><h3>HYROX first. Not HYROX only.</h3><p>HYROX is the ideal launch wedge because it has hype, high ticket value, sold-out events and a digital-first community. The brand remains broad so Biidova can expand into running, trail, triathlon and endurance.</p></div><a href="#vendi" class="btn-primary" style="width:max-content; position:relative; z-index:1;">Start with HYROX →</a><img src="https://raw.githubusercontent.com/biidova/biidova-images/main/hyrox.png" alt="HYROX"></div>
+    <div class="mini-events reveal d1"><div class="mini-event"><div><h4>Major marathons</h4><p>Stable long-term demand, SEO potential and huge international buyer pool.</p></div><span class="mini-badge">Volume</span></div><div class="mini-event"><div><h4>Trail running</h4><p>Scarce entries, emotional demand and strong niche communities.</p></div><span class="mini-badge">Niche</span></div><div class="mini-event"><div><h4>Triathlon later</h4><p>Premium category but more complex due to licenses, docs and higher risk.</p></div><span class="mini-badge">Phase 2</span></div><div class="mini-event"><div><h4>Organizer tools</h4><p>Future SaaS layer for approvals, transfer fees and dashboards.</p></div><span class="mini-badge">B2B</span></div></div>
+  </div>
+</section>
 
-<!-- ORG -->
-<div class="org-wrap" id="organizzatori">
+<div class="org-wrap" id="request">
   <div class="org-inner">
-    <div class="reveal">
-      <div class="eyebrow">Per gli organizzatori</div>
-      <h2>Smettila di gestire i trasferimenti via email.</h2>
-      <p>Oggi gestisci le sostituzioni manualmente: email, moduli, bonifici. Biidova automatizza tutto e ti fa guadagnare su ogni trasferimento.</p>
-      <div class="org-list">
-        <div class="org-item">Zero email manuali per i cambi nominativo</div>
-        <div class="org-item">Fee di segreteria garantita su ogni trasferimento</div>
-        <div class="org-item">Dashboard per monitorare tutte le sostituzioni</div>
-        <div class="org-item">Nessun costo di setup, nessun rischio</div>
-        <div class="org-item">Integrazione con Endu e Wedosport</div>
-      </div>
-    </div>
-    <div class="org-form reveal d1">
-      <h3>Diventa partner</h3>
-      <div class="form-group"><label class="form-label">Nome gara / organizzazione</label><input type="text" class="form-input" placeholder="es. Maratona di Roma"></div>
-      <div class="form-group"><label class="form-label">La tua email</label><input type="email" class="form-input" placeholder="nome@organizzazione.it"></div>
-      <div class="form-group"><label class="form-label">Quante edizioni organizzi/anno?</label><select class="form-input"><option>1 evento</option><option>2-5 eventi</option><option>6-10 eventi</option><option>Più di 10</option></select></div>
-      <button class="form-submit" onclick="this.textContent='✓ Ti contatteremo entro 24h'; this.style.background='#28A428'; this.disabled=true;">Voglio saperne di più →</button>
-    </div>
+    <div class="reveal"><div class="eyebrow">Buyer demand</div><h2>Missed registration? Request an entry.</h2><p>Not every event will have active listings at launch. That is why Biidova also collects buyer demand: event, category, max price and urgency. This creates liquidity before the marketplace is fully mature.</p><div class="org-list"><div class="org-item">Request sold-out entries before listings exist</div><div class="org-item">Match buyers with verified sellers</div><div class="org-item">Prioritize events with real demand</div><div class="org-item">Build waitlists for launch countries</div></div></div>
+    <div class="org-form reveal d1"><h3>Request an entry</h3><div class="form-group"><label class="form-label">Event</label><input type="text" class="form-input" placeholder="e.g. HYROX Milan, Valencia Marathon"></div><div class="form-group"><label class="form-label">Your email</label><input type="email" class="form-input" placeholder="name@email.com"></div><div class="form-group"><label class="form-label">Max budget</label><input type="text" class="form-input" placeholder="e.g. €180"></div><button class="form-submit" onclick="this.textContent='✓ Request saved'; this.style.background='#28A428'; this.disabled=true;">Request entry →</button></div>
   </div>
 </div>
 
-<!-- SELL CTA -->
+<div class="why-wrap">
+  <div class="why-inner">
+    <div class="why-left reveal"><div class="eyebrow">Why now</div><h2>Sports entries are becoming <span class="lime">scarce digital assets.</span></h2><p>Events sell out faster, athletes get injured, plans change and transfers still happen through DMs, Facebook groups and messy emails. Biidova turns that chaos into a trusted workflow.</p><a href="#vendi" class="btn-primary">Sell safely →</a></div>
+    <div class="features reveal d1"><div class="feature"><div class="feature-check">✓</div><div class="feature-text"><h4>No scam-prone DMs</h4><p>Everything is structured: seller proof, buyer request, payment protection and transfer status.</p></div></div><div class="feature"><div class="feature-check">✓</div><div class="feature-text"><h4>Not a generic ticket site</h4><p>Biidova is built specifically for race entries, categories, bibs and name-change workflows.</p></div></div><div class="feature"><div class="feature-check">✓</div><div class="feature-text"><h4>AI behind the scenes</h4><p>AI supports policy extraction, transfer guidance, email drafts and status updates — without making the brand feel gimmicky.</p></div></div><div class="feature"><div class="feature-check">✓</div><div class="feature-text"><h4>Scalable global brand</h4><p>Launch narrow with HYROX + marathons, expand into all transferable endurance and fitness events.</p></div></div></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-header reveal"><div><div class="eyebrow">FAQ</div><h2 class="section-title">Trust questions answered upfront.</h2></div></div>
+  <div class="faq reveal"><div class="faq-row"><strong>Is Biidova an official event organizer?</strong><span>No. Biidova is a secure transfer marketplace. We only support events where the organizer allows transfers or name changes.</span></div><div class="faq-row"><strong>What happens if the transfer fails?</strong><span>The buyer is protected and the transaction can be cancelled or refunded according to the final payment flow.</span></div><div class="faq-row"><strong>Why not support every sport immediately?</strong><span>Because trust matters more than quantity. V1 focuses only on categories where transfer rules are clear enough to operate safely.</span></div><div class="faq-row"><strong>Where does AI fit?</strong><span>AI works behind the scenes: reading policies, preparing instructions, generating emails and reducing support workload.</span></div></div>
+</section>
+
 <div class="sell-wrap" id="vendi">
-  <div class="sell-inner reveal">
-    <div class="eyebrow" style="color:var(--grey-text);">Cedi la tua iscrizione</div>
-    <h2>Non puoi partecipare?<br><span class="lime">Non perdere i soldi.</span></h2>
-    <p>Inserisci la tua iscrizione in 2 minuti. Troviamo noi l'acquirente. Tu recuperi i soldi. Zero commissioni.</p>
-    <button class="btn-primary" onclick="openSell()">Inserisci la tua iscrizione →</button>
-    <p style="font-size:12px;color:var(--grey-text);margin-top:16px;">Solo gare con trasferimento ufficialmente permesso dall'organizzatore</p>
-  </div>
+  <div class="sell-inner reveal"><div class="eyebrow" style="color:var(--grey-text);">Sell your entry</div><h2>Can’t compete?<br><span class="lime">Don’t lose your entry.</span></h2><p>List your transferable entry in minutes. We verify the policy, protect the buyer and guide the name-change workflow.</p><button class="btn-primary" onclick="openSell()">List your entry →</button><p style="font-size:12px;color:var(--grey-text);margin-top:16px;">Only events with official transfer/name change allowed.</p></div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div><div class="footer-logo">biid<span>ova</span></div><div class="footer-tagline">Il marketplace ufficiale per il trasferimento di iscrizioni sportive in Italia.</div></div>
-      <div class="footer-links">
-        <div class="footer-col"><h4>Prodotto</h4><a href="#events">Gare disponibili</a><a href="#vendi">Cedi iscrizione</a><a href="#come-funziona">Come funziona</a></div>
-        <div class="footer-col"><h4>Organizzatori</h4><a href="#organizzatori">Diventa partner</a><a href="#">Dashboard</a><a href="#">Integrazioni</a></div>
-        <div class="footer-col"><h4>Biidova</h4><a href="#">Chi siamo</a><a href="#">Contatti</a><a href="#">Privacy</a></div>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>© 2025 Biidova. Tutti i diritti riservati.</span><div style="display:flex;gap:20px;"><a href="#" style="color:var(--grey-text);text-decoration:none;font-size:13px;">Privacy</a><a href="#" style="color:var(--grey-text);text-decoration:none;font-size:13px;">Termini</a></div></div>
-  </div>
+  <div class="footer-inner"><div class="footer-top"><div><div class="footer-logo">biid<span>ova</span></div><div class="footer-tagline">The global transfer marketplace for sold-out fitness and endurance events.</div></div><div class="footer-links"><div class="footer-col"><h4>Product</h4><a href="#events">Events</a><a href="#vendi">Sell entry</a><a href="#request">Request entry</a></div><div class="footer-col"><h4>Categories</h4><a href="#categories">HYROX</a><a href="#categories">Marathons</a><a href="#categories">Trail</a></div><div class="footer-col"><h4>Biidova</h4><a href="#trust">Safety</a><a href="#">Contact</a><a href="#">Privacy</a></div></div></div><div class="footer-bottom"><span>© 2026 Biidova. All rights reserved.</span><div style="display:flex;gap:20px;"><a href="#" style="color:var(--grey-text);text-decoration:none;font-size:13px;">Privacy</a><a href="#" style="color:var(--grey-text);text-decoration:none;font-size:13px;">Terms</a></div></div></div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modal-body">
-      <h3 id="m-title">Acquista iscrizione</h3>
-      <div class="modal-info"><strong id="m-name">—</strong><span id="m-details">—</span></div>
-      <div class="modal-price"><span class="modal-price-label">Totale (incl. segreteria organizzatore)</span><span class="modal-price-val" id="m-price">—</span></div>
-      <div class="form-group"><label class="form-label">La tua email</label><input type="email" class="form-input" id="m-email" placeholder="nome@email.com"></div>
-      <button class="form-submit" onclick="submitBuy()">Conferma acquisto →</button>
-      <p class="modal-note">Rimborso garantito se il trasferimento non va a buon fine.</p>
-    </div>
-    <div id="modal-success" class="success-state" style="display:none;">
-      <div class="success-icon">🏅</div>
-      <h3>Richiesta inviata!</h3>
-      <p>Ti contatteremo entro 24h con la conferma del trasferimento.</p>
-    </div>
-  </div>
-</div>
+<div class="modal-overlay" id="modal"><div class="modal"><button class="modal-close" onclick="closeModal()">✕</button><div id="modal-body"><h3 id="m-title">Buy entry</h3><div class="modal-info"><strong id="m-name">—</strong><span id="m-details">—</span></div><div class="modal-price"><span class="modal-price-label">Protected total</span><span class="modal-price-val" id="m-price">—</span></div><div class="form-group"><label class="form-label">Your email</label><input type="email" class="form-input" id="m-email" placeholder="name@email.com"></div><button class="form-submit" onclick="submitBuy()">Continue →</button><p class="modal-note">You are protected if the official transfer cannot be completed.</p></div><div id="modal-success" class="success-state" style="display:none;"><div class="success-icon">🏅</div><h3>Request sent!</h3><p>We’ll contact you with the next transfer step.</p></div></div></div>
 
 <script>
+
+  const BIIDOVA_TRANSLATIONS = {"Events": "Eventi", "Categories": "Categorie", "Safety": "Sicurezza", "Sell": "Vendi", "Sell entry →": "Vendi iscrizione →", "Global transfer marketplace · Launching with HYROX + endurance": "Marketplace globale di trasferimenti · Lancio con HYROX + endurance", "Browse events →": "Esplora eventi →", "Sell your entry": "Vendi la tua iscrizione", "transferable only": "solo trasferibili", "guided workflow": "workflow guidato", "protected process": "processo protetto", "HYROX": "HYROX", "Marathons": "Maratone", "Trail running": "Trail running", "Functional fitness": "Functional fitness", "Endurance events": "Eventi endurance", "Official transfers only": "Solo transfer ufficiali", "Verified listings": "Annunci verificati", "Protected payments": "Pagamenti protetti", "All sports": "Tutti gli sport", "Marathon": "Maratona", "Triathlon": "Triathlon", "Worldwide": "Tutto il mondo", "Europe": "Europa", "United Kingdom": "Regno Unito", "Italy": "Italia", "Spain": "Spagna", "Germany": "Germania", "Search →": "Cerca →", "Launch categories": "Categorie iniziali", "Focused now. Global later.": "Focus adesso. Globale dopo.", "Explore →": "Esplora →", "High hype": "Hype alto", "Stable volume": "Volume stabile", "Premium niche": "Nicchia premium", "Next phase": "Fase successiva", "Major": "Major", "Endurance": "Endurance", "Sold-out races, doubles changes, last-minute injuries, huge social demand.": "Gare sold-out, cambi doubles, infortuni last-minute e domanda social enorme.", "Berlin, Valencia, Paris and global road races with strong resale demand.": "Berlino, Valencia, Parigi e gare su strada globali con forte domanda.", "Limited entries, mountain events and athletes looking for safe transfers.": "Pettorali limitati, eventi mountain e atleti che cercano transfer sicuri.", "Triathlon, cycling and multi-sport events added only when transfer is clear.": "Triathlon, ciclismo e multisport aggiunti solo quando il transfer è chiaro.", "Available examples": "Esempi disponibili", "Sold-out access, safely transferred.": "Accesso a eventi sold-out, trasferito in sicurezza.", "Request an entry →": "Richiedi iscrizione →", "All": "Tutti", "Fitness": "Fitness", "Verified seller": "Venditore verificato", "Feb 2026": "Feb 2026", "Milan": "Milano", "HYROX Milan": "HYROX Milano", "Individual Women · Sold-out slot · AI-guided transfer workflow": "Individual Women · Slot sold-out · Transfer guidato con AI", "Total price": "Prezzo totale", "Buy →": "Acquista →", "Dec 2026": "Dic 2026", "Valencia": "Valencia", "Valencia Marathon": "Maratona di Valencia", "Fast course · International demand · Protected payment": "Percorso veloce · Domanda internazionale · Pagamento protetto", "Sep 2026": "Set 2026", "Berlin": "Berlino", "Berlin Marathon": "Maratona di Berlino", "Waitlist": "Lista d’attesa", "Major marathon · Buyer request matching · Transfer policy checked": "Major marathon · Matching richieste buyer · Policy verificata", "From": "Da", "Request →": "Richiedi →", "Lavaredo Ultra Trail": "Lavaredo Ultra Trail", "Dolomites": "Dolomiti", "Trail slot · Mountain race · Policy tracking": "Slot trail · Gara mountain · Policy monitorata", "Paris Fitness Race": "Paris Fitness Race", "Functional fitness · Transfer available · Launch test category": "Functional fitness · Transfer disponibile · Categoria test di lancio", "Global trust layer": "Layer di fiducia globale", "What Biidova protects.": "Cosa protegge Biidova.", "Seller proof": "Prova venditore", "Entry receipt, category, event and transfer eligibility are checked before publishing.": "Ricevuta, categoria, evento e idoneità al transfer vengono controllati prima della pubblicazione.", "Buyer money": "Soldi buyer", "Payment is not treated like a random DM deal. The workflow protects both sides.": "Non è un accordo via DM. Il workflow protegge entrambe le parti.", "Transfer path": "Percorso transfer", "Every event needs rules: deadline, fee, organizer method, documents and timing.": "Ogni evento ha regole: deadline, fee, metodo organizer, documenti e tempi.", "How it works": "Come funziona", "One marketplace. Two simple flows.": "Un marketplace. Due flussi semplici.", "Buy": "Compra", "Find an event": "Trova un evento", "Browse sold-out races and fitness events where official transfer is allowed.": "Esplora gare e fitness events sold-out dove il transfer ufficiale è consentito.", "Pay safely": "Paga in sicurezza", "Your payment is protected while the transfer is verified and completed.": "Il pagamento è protetto mentre il transfer viene verificato e completato.", "Get guided": "Ricevi guida", "Biidova gives you the transfer instructions, documents and timeline.": "Biidova ti dà istruzioni, documenti e timeline del transfer.", "List your entry": "Pubblica iscrizione", "Add event, category, price and proof of registration in a few minutes.": "Aggiungi evento, categoria, prezzo e prova d’iscrizione in pochi minuti.", "We verify it": "La verifichiamo", "Only official transferable entries are published. This keeps the marketplace clean.": "Pubblicate solo iscrizioni ufficialmente trasferibili. Così il marketplace resta pulito.", "Transfer & payout": "Transfer e payout", "Once the buyer is transferred, the seller receives the payout.": "Quando il buyer è trasferito, il seller riceve il pagamento.", "The real moat": "Il vero moat", "Only events where transfer is officially allowed.": "Solo eventi dove il transfer è ufficialmente consentito.", "Biidova is not a grey market. Every supported event needs a clear transfer path: deadline, fee, method and proof. The marketplace starts narrow, trusted and operational — then expands globally sport by sport.": "Biidova non è un mercato grigio. Ogni evento supportato deve avere un percorso transfer chiaro: deadline, fee, metodo e prova. Il marketplace parte focalizzato, affidabile e operativo — poi scala globalmente sport dopo sport.", "Transfer policy verification": "Verifica policy transfer", "We track if name change is allowed, how it works and what documents are needed.": "Tracciamo se il cambio nominativo è consentito, come funziona e quali documenti servono.", "Sellers submit proof before the entry appears publicly.": "I seller inviano una prova prima che l’iscrizione appaia pubblicamente.", "Protected payment": "Pagamento protetto", "Funds move only after the transfer workflow is progressing correctly.": "I fondi si muovono solo quando il workflow di transfer procede correttamente.", "AI-assisted operations": "Operazioni assistite da AI", "AI helps read rules, generate instructions and reduce manual support.": "L’AI aiuta a leggere regole, generare istruzioni e ridurre supporto manuale.", "Global event engine": "Motore eventi globale", "A database that becomes the product.": "Un database che diventa il prodotto.", "Event catalog": "Catalogo eventi", "HYROX, marathons, trail and endurance events with verified transfer info.": "HYROX, maratone, trail ed eventi endurance con info transfer verificate.", "Policy graph": "Policy graph", "Deadline, transfer fee, organizer process, forms and restrictions.": "Deadline, fee transfer, processo organizer, moduli e restrizioni.", "Demand matching": "Matching domanda", "Buyers can request entries even when no listing is active yet.": "I buyer possono richiedere iscrizioni anche quando non ci sono annunci attivi.", "Automation layer": "Layer automazione", "AI-generated transfer guidance, emails, reminders and status updates.": "Istruzioni transfer, email, reminder e status update generati con AI.", "Featured vertical": "Vertical iniziale", "HYROX first. Not HYROX only.": "HYROX prima. Non solo HYROX.", "HYROX is the ideal launch wedge because it has hype, high ticket value, sold-out events and a digital-first community. The brand remains broad so Biidova can expand into running, trail, triathlon and endurance.": "HYROX è il wedge ideale perché ha hype, ticket alti, eventi sold-out e community digitale. Il brand resta ampio così Biidova può espandersi in running, trail, triathlon ed endurance.", "Start with HYROX →": "Parti da HYROX →", "Major marathons": "Major marathons", "Stable long-term demand, SEO potential and huge international buyer pool.": "Domanda stabile nel lungo periodo, potenziale SEO e grande bacino buyer internazionale.", "Volume": "Volume", "Scarce entries, emotional demand and strong niche communities.": "Pettorali scarsi, domanda emotiva e community di nicchia forti.", "Niche": "Nicchia", "Triathlon later": "Triathlon dopo", "Premium category but more complex due to licenses, docs and higher risk.": "Categoria premium ma più complessa per licenze, documenti e rischio maggiore.", "Phase 2": "Fase 2", "Organizer tools": "Strumenti organizer", "Future SaaS layer for approvals, transfer fees and dashboards.": "Futuro layer SaaS per approvazioni, fee transfer e dashboard.", "Buyer demand": "Domanda buyer", "Missed registration? Request an entry.": "Registrazioni chiuse? Richiedi un’iscrizione.", "Not every event will have active listings at launch. That is why Biidova also collects buyer demand: event, category, max price and urgency. This creates liquidity before the marketplace is fully mature.": "Non ogni evento avrà annunci attivi al lancio. Per questo Biidova raccoglie anche domanda buyer: evento, categoria, prezzo massimo e urgenza. Così crea liquidità prima che il marketplace sia maturo.", "Request sold-out entries before listings exist": "Richiedi iscrizioni sold-out prima che esistano annunci", "Match buyers with verified sellers": "Abbina buyer con seller verificati", "Prioritize events with real demand": "Dai priorità agli eventi con domanda reale", "Build waitlists for launch countries": "Crea waitlist per i paesi di lancio", "Request an entry": "Richiedi iscrizione", "Event": "Evento", "Your email": "La tua email", "Max budget": "Budget massimo", "Request entry →": "Richiedi iscrizione →", "Why now": "Perché ora", "Sports entries are becoming": "Le iscrizioni sportive stanno diventando", "scarce digital assets.": "asset digitali scarsi.", "Events sell out faster, athletes get injured, plans change and transfers still happen through DMs, Facebook groups and messy emails. Biidova turns that chaos into a trusted workflow.": "Gli eventi vanno sold-out più in fretta, gli atleti si infortunano, i piani cambiano e i transfer avvengono ancora via DM, gruppi Facebook ed email confuse. Biidova trasforma quel caos in un workflow affidabile.", "Sell safely →": "Vendi in sicurezza →", "No scam-prone DMs": "Niente DM pieni di scam", "Everything is structured: seller proof, buyer request, payment protection and transfer status.": "Tutto è strutturato: prova seller, richiesta buyer, pagamento protetto e stato transfer.", "Not a generic ticket site": "Non è un sito ticket generico", "Biidova is built specifically for race entries, categories, bibs and name-change workflows.": "Biidova è costruita per iscrizioni gara, categorie, pettorali e workflow di cambio nominativo.", "AI behind the scenes": "AI dietro le quinte", "AI supports policy extraction, transfer guidance, email drafts and status updates — without making the brand feel gimmicky.": "L’AI supporta estrazione policy, guida transfer, bozze email e aggiornamenti stato — senza rendere il brand gimmick.", "Scalable global brand": "Brand globale scalabile", "Launch narrow with HYROX + marathons, expand into all transferable endurance and fitness events.": "Lancia stretto con HYROX + maratone, poi espandi a tutti gli eventi endurance e fitness trasferibili.", "FAQ": "FAQ", "Trust questions answered upfront.": "Le domande di fiducia, chiarite subito.", "Is Biidova an official event organizer?": "Biidova è un organizer ufficiale?", "No. Biidova is a secure transfer marketplace. We only support events where the organizer allows transfers or name changes.": "No. Biidova è un marketplace sicuro per transfer. Supportiamo solo eventi dove l’organizer consente transfer o cambio nominativo.", "What happens if the transfer fails?": "Cosa succede se il transfer fallisce?", "The buyer is protected and the transaction can be cancelled or refunded according to the final payment flow.": "Il buyer è protetto e la transazione può essere cancellata o rimborsata in base al flusso pagamento finale.", "Why not support every sport immediately?": "Perché non supportare subito ogni sport?", "Because trust matters more than quantity. V1 focuses only on categories where transfer rules are clear enough to operate safely.": "Perché la fiducia conta più della quantità. La V1 si concentra solo su categorie dove le regole transfer sono abbastanza chiare per operare in sicurezza.", "Where does AI fit?": "Dove entra l’AI?", "AI works behind the scenes: reading policies, preparing instructions, generating emails and reducing support workload.": "L’AI lavora dietro le quinte: legge policy, prepara istruzioni, genera email e riduce il carico support.", "Can’t compete?": "Non puoi gareggiare?", "Don’t lose your entry.": "Non perdere la tua iscrizione.", "List your transferable entry in minutes. We verify the policy, protect the buyer and guide the name-change workflow.": "Pubblica la tua iscrizione trasferibile in pochi minuti. Verifichiamo la policy, proteggiamo il buyer e guidiamo il cambio nominativo.", "List your entry →": "Pubblica iscrizione →", "Only events with official transfer/name change allowed.": "Solo eventi con transfer/cambio nominativo ufficialmente consentito.", "The global transfer marketplace for sold-out fitness and endurance events.": "Il marketplace globale per trasferire iscrizioni di eventi fitness ed endurance sold-out.", "Product": "Prodotto", "Sell entry": "Vendi iscrizione", "Request entry": "Richiedi iscrizione", "Contact": "Contatti", "Privacy": "Privacy", "Terms": "Termini", "© 2026 Biidova. All rights reserved.": "© 2026 Biidova. Tutti i diritti riservati.", "Buy entry": "Compra iscrizione", "Protected total": "Totale protetto", "Continue →": "Continua →", "You are protected if the official transfer cannot be completed.": "Se il transfer ufficiale non può essere completato, sei protetto.", "Request sent!": "Richiesta inviata!", "We’ll contact you with the next transfer step.": "Ti contatteremo con il prossimo step del transfer.", "Submit your transferable entry": "Invia la tua iscrizione trasferibile", "We verify the policy and publish it after review": "Verifichiamo la policy e pubblichiamo dopo revisione"};
+  const BIIDOVA_ORIGINALS = new WeakMap();
+  const BIIDOVA_PLACEHOLDERS = new WeakMap();
+  function walkTextNodes(root, callback) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(node) {
+      if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      const parent = node.parentElement;
+      if (!parent || ['SCRIPT','STYLE'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode); nodes.forEach(callback);
+  }
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    document.title = lang === 'it' ? 'Biidova — Compra e vendi iscrizioni per eventi sold-out' : 'Biidova — Buy & Sell Entries for Sold-Out Events';
+    walkTextNodes(document.body, node => {
+      if (!BIIDOVA_ORIGINALS.has(node)) BIIDOVA_ORIGINALS.set(node, node.nodeValue);
+      const original = BIIDOVA_ORIGINALS.get(node);
+      const trimmed = original.trim();
+      if (lang === 'it' && BIIDOVA_TRANSLATIONS[trimmed]) node.nodeValue = original.replace(trimmed, BIIDOVA_TRANSLATIONS[trimmed]);
+      if (lang === 'en') node.nodeValue = original;
+    });
+    document.querySelectorAll('[placeholder]').forEach(el => {
+      if (!BIIDOVA_PLACEHOLDERS.has(el)) BIIDOVA_PLACEHOLDERS.set(el, el.getAttribute('placeholder'));
+      const original = BIIDOVA_PLACEHOLDERS.get(el);
+      const placeholderMap = {
+        'Search event, city, country or sport...': 'Cerca evento, città, paese o sport...',
+        'e.g. HYROX Milan, Valencia Marathon': 'es. HYROX Milano, Maratona di Valencia',
+        'name@email.com': 'nome@email.com',
+        'e.g. €180': 'es. €180'
+      };
+      el.setAttribute('placeholder', lang === 'it' ? (placeholderMap[original] || original) : original);
+    });
+    localStorage.setItem('biidova_lang', lang);
+  }
+  function setLang(lang) { applyLanguage(lang); }
+  window.addEventListener('DOMContentLoaded', () => applyLanguage(localStorage.getItem('biidova_lang') || 'en'));
   const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.1,rootMargin:'0px 0px -30px 0px'});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   function filter(btn,sport) { document.querySelectorAll('.tag').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.card').forEach(c=>c.style.display=(sport==='all'||c.dataset.sport===sport)?'block':'none'); }
-  function switchTab(btn,tab) { document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); document.getElementById('steps-acq').style.display=tab==='acq'?'grid':'none'; document.getElementById('steps-vend').style.display=tab==='vend'?'grid':'none'; }
-  function openModal(e,name,details,price) { e.preventDefault(); document.getElementById('m-title').textContent='Acquista iscrizione'; document.getElementById('m-name').textContent=name; document.getElementById('m-details').textContent=details; document.getElementById('m-price').textContent='€'+price; document.getElementById('modal-body').style.display='block'; document.getElementById('modal-success').style.display='none'; document.getElementById('modal').classList.add('open'); }
-  function openSell() { document.getElementById('m-title').textContent='Cedi la tua iscrizione'; document.getElementById('m-name').textContent='Inserisci i dati della tua iscrizione'; document.getElementById('m-details').textContent='Ti contatteremo per verificare e pubblicare il tuo annuncio'; document.getElementById('m-price').textContent='€0'; document.getElementById('modal-body').style.display='block'; document.getElementById('modal-success').style.display='none'; document.getElementById('modal').classList.add('open'); }
+  function switchTab(btn,tab) { document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); document.getElementById('steps-buy').style.display=tab==='buy'?'grid':'none'; document.getElementById('steps-sell').style.display=tab==='sell'?'grid':'none'; }
+  function openModal(e,name,details,price) { e.preventDefault(); document.getElementById('m-title').textContent=(localStorage.getItem('biidova_lang')==='it'?'Compra iscrizione':'Buy entry'); document.getElementById('m-name').textContent=name; document.getElementById('m-details').textContent=details; document.getElementById('m-price').textContent='€'+price; document.getElementById('modal-body').style.display='block'; document.getElementById('modal-success').style.display='none'; document.getElementById('modal').classList.add('open'); }
+  function openSell() { document.getElementById('m-title').textContent=(localStorage.getItem('biidova_lang')==='it'?'Vendi la tua iscrizione':'Sell your entry'); document.getElementById('m-name').textContent=(localStorage.getItem('biidova_lang')==='it'?'Invia la tua iscrizione trasferibile':'Submit your transferable entry'); document.getElementById('m-details').textContent=(localStorage.getItem('biidova_lang')==='it'?'Verifichiamo la policy e pubblichiamo dopo revisione':'We verify the policy and publish it after review'); document.getElementById('m-price').textContent='€0'; document.getElementById('modal-body').style.display='block'; document.getElementById('modal-success').style.display='none'; document.getElementById('modal').classList.add('open'); }
   function closeModal() { document.getElementById('modal').classList.remove('open'); }
-  function submitBuy() { const em=document.getElementById('m-email').value; if(!em||!em.includes('@')){alert('Inserisci una email valida');return;} document.getElementById('modal-body').style.display='none'; document.getElementById('modal-success').style.display='block'; }
+  function submitBuy() { const em=document.getElementById('m-email').value; if(!em||!em.includes('@')){alert(localStorage.getItem('biidova_lang')==='it'?'Inserisci una email valida':'Enter a valid email');return;} document.getElementById('modal-body').style.display='none'; document.getElementById('modal-success').style.display='block'; }
   document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
   document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 </script>
 
-
-</section><a href="blob:https://biidova-website.vercel.app/a2ad4be2-ac2b-4e4c-80fb-cf79c2bfd9bc" download="athletes-hero.png" id="download-link-0"></a></body></html>
+</body></html> id="download-link-0"></a></body></html>
